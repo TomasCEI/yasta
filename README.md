@@ -1,5 +1,8 @@
 # yasta
-Sistema de Gestion Resto
+Sistema de Gestion Restos para pre-pedido de reservas y platos
+
+![Diagrama](./yasta.png)
+
 
 
 Grupo 1
