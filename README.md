@@ -7,17 +7,16 @@ belen
 alba
 
 Grupo 2
-romi
+liz
 dera
 
 Grupo 3
 cris
-albar
+romi
+kike
 
 Grupo 4
-kike
-eliz
-
-Grupo 5
 sina
 pablo
+alba R
+
