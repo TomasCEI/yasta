@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prácticas JS</title>
+  </head>
+  <body>
+
+    <script>
+      let result=document.getElementById("result-box");
+      console.log("result es:", result);
+
+      var indice=1;
+      function show(item){
+        console.log(indice, item);
+        result.innerHTML+=`<pre>${indice}. ${item}</pre><hr>`;
+        indice++;
+      }
+</script>
+
+ 
+    <h1>Prácticas con Arrays JS</h1>
+    
+
+    <div id="result-box"></div>
+
+ 
+  
+<script>
+          let alumnos=["Juan", "Pedro", "Maria"];
+          console.log(alumnos);
+          // show(alumnos);
+
+
+          // agregar 1 item al final ("Laura")
+          alumnos.push("Laura");
+          console.log(alumnos);
+          // show(alumnos);
+
+          // en que posición / cuantos eliminar / items a agregar
+          alumnos.splice(0,0, "Fran", "Dolores");
+          console.log(alumnos);
+          // show(alumnos);
+
+          // quitar ultimos 2 elementos ("Laura" y "María")
+          alumnos.splice(-2,2);
+          // show(alumnos);
+
+          // cambiar a juan por juanchi
+          alumnos.splice(2,1,"Juanchi");
+          // show(alumnos);
+
+
+
+        // ------------------------------------------
+        // Formas de mostrar Funciones:
+        // ------------------------------------------
+        function miFunction() {
+          console.log("Función Nombrada");
+          //alert("Función Nombrada");
+        }
+        miFunction();
+
+        // var miFunctionAnonima = function Anonima () {
+        var miFunctionAnonima = function () {
+          console.log("Función Anonima");
+          //alert("Función Anonima");
+        }
+        miFunctionAnonima();
+
+
+        var miFunctionFlecha = () => {
+          console.log("Función Flecha");
+          // alert("Función Flecha");
+        }
+        miFunctionFlecha();
+
+
+        var miFunctionEnLinea = () => console.log("Soy una función de una única linea");
+        miFunctionEnLinea();
+
+
+      // ------------------------------------------
+      // Recorriendo arrays forEach:
+      // ------------------------------------------
+       
+      
+      function recorrerVector() {
+        // Original array
+        const items = [12, 24, 36];
+        const copy = [];
+        console.log("CORRIEND");
+        items.forEach(function (item) {
+          // realizo operaciones...
+          copy.push(item + 1);
+        });
+        console.log("Copia es: ",copy);
+        show("origi: "+items);
+        show("copia: "+copy);
+      }
+      // recorrerVector();
+
+
+    
+
+      // ------------------------------------------
+      alumnos=["Juan", "pedro", "Maria"];
+      // show(alumnos);
+
+
+
+      // recorro para leer o imprimir
+      alumnos.forEach( (alumno) => {
+        alumno="juan";
+      }   )
+      // show(alumnos);
+
+      // ------------------------------------------
+
+      // Manipular 1 item. (cambiar de pedro a Pedro)
+      alumnos[1]="Pedro";
+      // show(alumnos);
+
+      // recorro con indices para modificar
+      alumnos.forEach( (alumno,i) => {
+      //console.log(alumno);
+        alumnos[i]="Juan";
+      }   )
+
+
+
+      // ------------------------------------------
+      // FILTROS:
+      // ------------------------------------------
+
+      function puedeVotar(edad) {
+          return edad >= 18;
+      }
+      function funcionFiltrar() {
+          let edades = [9, 24, 33, 16, 7, 40];
+          let mayores = [24, 33, 16, 40].filter(puedeVotar);
+          
+          show(edades);
+          show(mayores);
+      }
+      // funcionFiltrar();
+
+      // ------------------------------------------
+
+      function esPar(valor) {
+          return valor % 2 == 0;
+      }
+      let filtrados = [11, 98, 31, 23, 944].filter(esPar);
+      // show(filtrados);
+
+      // ------------------------------------------
+
+      alumnos=["Juan", "pedro", "Maria"];
+
+
+      let estaJuan1=alumnos.filter( function esJuan(alu) { if(alu=="Juan" ){ return alu; }   });
+      let estaJuan2=alumnos.filter( function esJuan(alu) { return alu=="Juan" });
+      let estaJuan3=alumnos.filter( (alu) => alu=="Juan" ); // 1 sola linea
+      let estaJuan4=alumnos.filter( alu =>  alu=="Juan" );
+      //show(estaJuan1);
+      //show(estaJuan2);
+      //show(estaJuan3);
+      //show(estaJuan4);
+
+
+      let users = [
+        { name: "fran",edad: 26, tf_premium: true },
+        { name: "dolo",edad: 31, tf_premium: false },
+        { name: "sol",edad: 44, tf_premium: true },
+       ];
+      let usersPremium=users.filter( user =>  user.tf_premium==true );
+      
+      console.log(users);
+      console.log(usersPremium);
+
+      const stringObjeto = JSON.stringify(usersPremium);
+      // show(stringObjeto);
+
+    </script>
+  </body>
+</html>
