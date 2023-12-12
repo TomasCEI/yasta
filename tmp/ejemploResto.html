@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo Resto</title>
+
+    <style>
+        #box-categorias {
+            display:flex;
+        }
+        #box-categorias div{
+            display:flex;
+            flex-direction: column;
+            align-items:center;
+
+            border: 1px solid gray;
+            padding:5px;
+        }
+        #box-categorias img{
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+
+    otros ejemplos de objetos JSON:
+    <a target="_blank" href="https://gist.github.com/sharkyze/71efb42a5ee58c7a892bd0423f125802#file-restaurant-menu-json">Link 1</a><br>
+    <a target="_blank" href="https://github.com/lucasmro/restaurant-api">Link 2</a><br>
+    <a target="_blank" href="https://medium.com/altogic/backend-basics-restful-api-api-rest-methods-json-examples-429744ba0831">Link 3</a><br>
+
+    <hr>
+    <div id="box-categorias"></div>
+
+    <script>
+
+
+        const categorias=[{
+                id: 1,
+                categoria: "Entrantes",
+                img:"https://images.unsplash.com/photo-1625938144755-652e08e359b7?q=80&w=1670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            },{
+                id: 2,
+                categoria: "Principal",
+                img:"https://images.unsplash.com/photo-1561429684-1ddb421f1654?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            },{
+                id: 3,
+                categoria: "Postres",
+                img:"https://plus.unsplash.com/premium_photo-1671399556247-d1cc24a93cbd?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cG9zdHJlc3xlbnwwfHwwfHx8MA%3D%3D"
+        }];
+
+        const boxCategorias= document.getElementById("box-categorias");
+
+        categorias.forEach((cate)=> {
+            boxCategorias.innerHTML+=`<div>
+                                        <img src="${cate.img}"/>
+                                        <span class="title">${cate.categoria}</span>
+                                    </div>`;
+        });
+
+    </script>
+
+
+
+<style>
+    #box-pedidos {
+        border: 2px dashed gray;
+        border-radius: 10px;
+        min-height: 200px;
+        margin-top:10px;
+    }
+
+    .u-text-warning {
+        color: red;
+    }
+</style>
+
+
+<div id="box-pedidos"></div>
+
+    <script>
+
+        const pedidos={
+            id: 2,
+            cliente:"Bart Simpson",
+            direccion: "Calle Falsa 123",
+            telefono: "666-1234",
+            nota: "Intolerante a la lactosa",
+            turno: "21:30",
+            pax: 5,
+            tf_pagado: false, 
+            pedido: [
+                {
+                    producto: "tostadas con tomate",
+                    categoria: "Entrantes",
+                    cantidad: 2
+                },{
+                    producto: "Bastoncitos de Queso",
+                    categoria: "Entrantes",
+                    cantidad: 3
+                },{
+                    producto: "Volcan de Chocolate",
+                    categoria: "Postres",
+                    cantidad: 2
+                },{
+                    producto: "Cafeteria",
+                    categoria: "Bebidas",
+                    cantidad: 4
+                }
+            ]
+        };
+
+    
+        const boxPedidos= document.getElementById("box-pedidos");
+
+
+        console.log(pedidos.pedido[2].producto);
+
+        //let miLista="<ul>";
+        let miLista="";
+        pedidos.pedido.forEach((item)=> {
+            miLista+=`<li>
+                        <span>cant: <b>${item.cantidad}</b> - ${item.producto} (${item.categoria})</span>
+                    </li>`;
+        });
+        //miLista+="</ul>";
+
+
+        boxPedidos.innerHTML=`<h1>Pedido de: ${pedidos.cliente}</h1>
+            Dirección: ${pedidos.direccion}<br>
+            Teléfono: ${pedidos.telefono}<br>
+            Notas: <span class="u-text-warning">${pedidos.nota}</span><br>
+        <hr /> 
+        <ul>
+        ${miLista}
+        </ul>
+        `;
+
+
+        
+
+       // boxPedidos.innerHTML+=miLista;
+    </script>
+
+    
+</body>
+</html>
