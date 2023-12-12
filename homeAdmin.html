@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/yasta.css">
+</head>
+
+<body style="background-color: rgb(210, 221, 208); margin: 0;padding: 0;">
+
+    <div class="Main" style="height: 90vh; overflow: auto;">
+        <div class="Main-statsInicial" style="display: flex; height: 200px; justify-content: space-around;">
+            <div class="Main-statsInicial-orders"
+                style="  width: 50%; border-radius: 20px; margin: 20px; padding: 20px; background-color: white;">
+                <span style="font-size: 400%">5</span><br>
+                <span style="font-size: 200%"> Comandas activas</span>
+            </div>
+            <div style="width: 50%; border-radius: 20px; margin: 20px; padding: 20px;background-color: white;">
+                <span style="font-size: 400%">20</span><br>
+                <span style="font-size: 200%"> Comandas completas</span>
+            </div>
+        </div>
+    
+        <div class="Main-graph" style="height: 550px; margin: 0px 20px 20px 20px ;border-radius: 20px; padding: 20px; background-color: white;">
+            <div class="Main-graph-stats">
+    
+                <div style="display: flex; justify-content: space-between; margin: 20px; ">
+                    <div style="display: flex; flex-direction: column; ">
+                        <span style="font-size: 200%;">Ganancias</span>
+                        <span style="font-size: 300%;">2.300€</span>
+                    </div>
+    
+                    <select name="tiempo" id="tiempo" onchange="establecerLeyenda()"
+                        style="width: 150px;border-radius: 20px; border: 1px solid rgb(210, 221, 208);">
+                        <option value="Diario">Diario</option>
+                        <option value="Mensual">Mensual</option>
+    
+                    </select>
+                </div>
+    
+                <img src="imgs/graph.png" alt="grafico" style="width: 100%;">
+                <div id="lineaTemporal" style="font-size: 200%; display: flex; justify-content: space-around;"></div>
+    
+    
+            </div>
+        </div>
+    
+        <div class="Main-score" style="height: 150px; margin: 20px ;border-radius: 20px; padding: 20px; background-color: white; display: flex; flex-direction: column;">
+    
+            <span style="font-size: 200%;">Reviews</span>
+            <div style=" display: flex; justify-content: space-around; align-items: center; margin: 20px;" >
+                <div style="font-size: 400%;">
+                    <i class="fa-solid fa-star"></i>
+                    <span> 4.9</span>
+                </div>
+               
+                <span  style="font-size: 200%;">Total 20 reviews</span>
+            </div>
+        </div>
+
+        <div class="Main-ventas" style="height: 400px; margin: 20px ;border-radius: 20px; padding: 20px; background-color: white; display: flex; flex-direction: column; padding: 20px;">
+    
+            <span style="font-size: 200%;">Top Ventas</span><br>
+            <div style="display: flex; justify-content: space-around;">
+                <div style="width: 300px; height: 300px;border: 1px solid black;">
+                   <img src="imgs/logo.png" alt="foto" style="width: 300px; height: 300px;">
+                   <span>Elemento1</span>
+
+                </div>
+                <div style="width: 300px; height: 300px;border: 1px solid black;">
+                    <img src="imgs/logo.png" alt="foto" style="width: 300px; height: 300px;">
+                    <span>Elemento2</span>
+
+                </div>
+                <div style="width: 300px; height: 300px;border: 1px solid black;">
+                    <img src="imgs/logo.png" alt="foto" style="width: 300px; height: 300px;">
+                    <span>Elemento3</span>
+
+                </div>
+            </div>
+         
+        </div>
+
+
+
+
+
+    </div>
+
+  
+
+    <nav class="Main-nav" style="background-color: white ; height: 10%; width: 100%; position: fixed; bottom: 0; border-top: 2px solid  rgb(0, 0, 0);">
+        
+        <div class="Main-nav-icons" style="display: flex; height: 100%; align-items: center; justify-content: space-around; font-size: 300%;">
+            <a class="Main-nav-icons-link" style="color: black;" href=""><i class="fa-solid fa-clock"></i></i></a>
+            <a class="Main-nav-icons-link"  style="color: black;" href=""><i class="fa-solid fa-house"></i></i></a>
+            <a class="Main-nav-icons-link"  style="color: black;" href=""><i class="fa-solid fa-clipboard-list"></i></i></a>
+        </div>
+
+    </nav>
+
+
+    
+</body>
+<script>
+    const meses = ["Ene", "Feb", "Mar", "Ab", "May", "Jun", "Jul", "Ag", "Sept", "Oct", "Nov", "Dic"]
+    const dias = [1, 5, 10, 15, 20, 25, 30];
+    const lineaTemp = document.getElementById("lineaTemporal");
+    let valorSelect = document.getElementById("tiempo");
+
+    //Situación inicial
+    dias.forEach(
+        function (dia) {
+            lineaTemp.innerHTML += `<span>${dia}</span>`;
+        }
+    );
+
+
+    //lineaTemp.innerHTML = meses;
+
+    function establecerLeyenda() {
+        lineaTemp.innerHTML = " ";
+
+        if (valorSelect.value == "Mensual") {
+            meses.forEach(
+                function (mes) {
+                    lineaTemp.innerHTML += `<span>${mes}</span>`;
+                }
+            );
+
+        } else {
+            dias.forEach(
+                function (dia) {
+                    lineaTemp.innerHTML += `<span>${dia}</span>`;
+                }
+            );
+
+        }
+
+
+    }
+
+
+
+</script>
+
+</html>
