@@ -1,8 +1,9 @@
+*{font-family: 'Inter', sans-serif;}
+
 :root{
-    font-family: 'Inter', sans-serif;
     --primary-color: #84b732;
     --input-color: #f0f5fa;
-    --background-color: #f7f8f9;
+    --background-color: #e4e6ea;
     --background-color-2: #121223;
     --text-color-2: #a0a5ba;
     --text-color-3: #a0a5ba;

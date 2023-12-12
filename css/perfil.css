@@ -1,7 +1,12 @@
 
 body{ display: flex;
 flex-direction: column;
-align-items: center;}
+align-items: center;
+background-color: var(--background-color);
+}
+
+
+
 
 .Perfil-info{ display: flex;
     flex-direction: column;
@@ -39,17 +44,34 @@ font-size: 16px;
 }
 
 /*--------PARTE DE ARRIBA PERFIL---------*/
+.Perfil-pageName{ font-weight: normal;
+font-size: 18px;
+margin-left: -40px;}
 
 .Perfil-principal{ display: flex;
 flex-direction: row;
+justify-content: space-around;
 gap: 40px;
-width: 100%;
-height: 40%;}
+width: 80%;
+align-items: center;
+height: 40%;
+margin-bottom: 30px;}
 
 .Perfil-btn{ border-radius: 50px;
-height: 30px;
+height: 40px;
 border: none;
-width: 30px;}
+width: 40px;
+font-size: 18px;
+padding: 10px;}
+
+.Perfil-edit-button{
+background-color:transparent;
+color: var(--primary-color);
+font-size: 14px;
+border: none;
+text-decoration: var(--primary-color) underline;
+
+}
 
 .Perfil-title{ 
     display: flex;
@@ -62,6 +84,44 @@ width: 30px;}
     margin-bottom: 50px;
     margin-top: 20px;
 }
+.Perfil-img{ height: 130px;
+width: 130px;
+border-radius: 50%;
+object-fit: cover;
+margin-left: 10px;
+}
+.Perfil-name{margin-right: 90px;}
 
 /*-------FORMULARIO EDITAR PERFIL----------*/
+
+
+.Perfil-form{ display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 90%;
+height: auto;
+gap: 20px;
+margin-top: 50px;}
+
+
+.Perfil-form-input{ border: none;
+border-radius: 20px;
+height: auto;
+padding: 10px;
+width: 80%;
+background-color: var(--input-color);
+margin: 20px;
+padding: 10px;}
+
+.Perfil-btn-save{ 
+    background-color: var(--primary-color);
+    border: none;
+    background-color: var(--primary-color);
+    padding: 15px;
+    border-radius: 20px;
+}
+.Perfil-input-title{ font-family: 'Inter', sans-serif;
+ 
+
+}
 
