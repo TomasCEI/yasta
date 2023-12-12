@@ -1,0 +1,19 @@
+:root{
+    font-family: 'Inter', sans-serif;
+    --primary-color: #84b732;
+    --input-color: #f0f5fa;
+    --background-color: #f7f8f9;
+    --background-color-2: #121223;
+    --text-color-2: #a0a5ba;
+    --text-color-3: #a0a5ba;
+    
+    --button-font: 16px 
+}
+
+/* -------------------------------------
+375 width x 812 height - medidas movil
+768 width x 1024 height - modo tablet
+
+Border-radius: 20px
+-------------------------------------*/
+

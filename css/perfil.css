@@ -1,0 +1,67 @@
+
+body{ display: flex;
+flex-direction: column;
+align-items: center;}
+
+.Perfil-info{ display: flex;
+    flex-direction: column;
+    height: 40%;
+    width: 90%;
+    background-color: var(--background-color);
+    border-radius: 20px;
+    margin-top: 20px;}
+
+.Perfil-info-general{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 20%;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+}
+.Perfil-info-words{
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    font-size: 0.9rem;
+    gap: 5px;
+   
+}
+.Perfil-info-dato2{  font-size: 0.7rem;
+    font-weight: light;
+    color: var(--text-color-2);}
+
+.Perfil-info-icon{
+color: var(--primary-color);
+margin-left: 20px;
+font-size: 16px;
+}
+
+/*--------PARTE DE ARRIBA PERFIL---------*/
+
+.Perfil-principal{ display: flex;
+flex-direction: row;
+gap: 40px;
+width: 100%;
+height: 40%;}
+
+.Perfil-btn{ border-radius: 50px;
+height: 30px;
+border: none;
+width: 30px;}
+
+.Perfil-title{ 
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    gap: 30px;
+    height: 30%;
+    width: 100%;
+    margin-bottom: 50px;
+    margin-top: 20px;
+}
+
+/*-------FORMULARIO EDITAR PERFIL----------*/
+

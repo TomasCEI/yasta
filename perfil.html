@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yasta Perfil</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/yasta.css">
+<link rel="stylesheet" href="css/perfil.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+
+<body>
+   <div class="Perfil-title"><button class="Perfil-btn"><i class="fa-solid fa-arrow-left"></i></button> <h1>Perfil</h1> <button>Editar</button></div>
+
+<div class="Perfil-principal">
+    <img src="" alt="Imagen de perfil"> <div>
+        <span><h2>Tomás</h2></span>
+        <span>descripcion</span>
+    </div>
+</div>
+
+    <div id="PerfilInfo" class="Perfil-info">
+    </div>
+    
+
+
+
+<script>
+    
+  const PerfilInfo = document.getElementById("PerfilInfo")
+
+        var info = [{
+
+            icono: "fa-regular fa-user",
+            informacion: "Nombre completo",
+            nombre: "Tomás Samot"
+        }, {
+            icono: "fa-regular fa-envelope",
+            informacion: "Email",
+            nombre: "tomasamot39@gmail.com"
+
+        }, {
+            icono: "fa-solid fa-phone",
+            informacion: "Teléfono de contacto",
+            nombre: "658 56 42 81"
+
+        }];
+
+        var ProfileBox = "";
+
+
+info.forEach((dato) => {
+    ProfileBox = ProfileBox + `<div class="Perfil-info-general">
+        <i class="Perfil-info-icon ${dato.icono}"></i>
+        <div class= "Perfil-info-words"> 
+            <span>${dato.informacion}</span>
+            <span class=Perfil-info-dato2>${dato.nombre}</span>
+            </div> 
+            </div> 
+    `;
+}
+);
+    PerfilInfo.innerHTML= ProfileBox;
+
+</script>
+
+</body>
+</html>
