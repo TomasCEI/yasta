@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Ver resto</h1>
+
+    <h1>Soy pagina del resto</h1>
+    <p id="parrafo"></p>
+
+    <script>
+
+const restos =
+            [
+                {
+                    id: 25,
+                    icono_premium:true,
+                    nombre: "El Boliche de Alberto",
+                    imagen: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmVzdGF1cmFudGV8ZW58MHx8MHx8fDA%3D",
+                    descripcion:"Las mejores Carnes de la ciudad",
+
+                    contacto: {
+                        tel: "666-1234",
+                        direccion: "San Martin 1001",
+                        ciudad: "Bariloche",
+                        cp: 234123,
+                    },
+                    categorias: ["carnes", "comida regional", "almuerzos"]
+                },
+                {
+                    id: 33,
+                    icono_premium:false,
+                    nombre: "Heladeria Juaja",
+                    imagen: "https://images.unsplash.com/photo-1578474846511-04ba529f0b88?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHJlc3RhdXJhbnRlfGVufDB8fDB8fHww",
+                    descripcion:"Helados artesanales",
+                    contacto: {
+                        tel: "555-45345",
+                        direccion: "Mitre 891",
+                        ciudad: "Bariloche",
+                        cp: 234123,
+                    },
+                    categorias: ["helados", "postres"]
+                },
+                {
+                    id: 983,
+                    icono_premium:true,
+                    nombre: "Manush Bar",
+                    imagen: "https://images.unsplash.com/photo-1592861956120-e524fc739696?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHJlc3RhdXJhbnRlfGVufDB8fDB8fHww",
+                    descripcion:"La mejor Cerveza artesanal",
+                    contacto: {
+                        tel: "444-4321",
+                        direccion: "Pioneros km 2.4",
+                        ciudad: "Bariloche",
+                        cp: 234123,
+                    },
+                    categorias: ["cerveza", "tapas", "almuerzos"]
+                },
+            ]
+
+
+        const misParametros = window.location.search;
+        //console.log(misParametros);
+
+
+
+        const urlParams = new URLSearchParams(misParametros);
+
+        const primerAlumno=urlParams.get("alumno");
+        const segundoAlumno=urlParams.get("alumno2");
+
+        //const idResto= urlParams.has('id');
+        /* const nombre = urlParams.get('nombre');
+        const busqueda = urlParams.get('busqueda'); */
+        
+
+        console.log("paramS:",urlParams);
+
+
+
+
+
+
+
+        const idResto = urlParams.get('id');
+
+        let listaRestos = [
+        { name: "McDonalds",id: 26, tf_premium: true },
+        { name: "Subway",id: 25, tf_premium: false },
+        { name: "Burguer King",id: 44, tf_premium: true },
+       ];
+
+       let restElegido=restos.find( (resto) => 
+        resto.id == Number(idResto) );
+
+        const parrafo=document.getElementById("parrafo");
+        parrafo.innerHTML=restElegido.nombre;
+       console.log(restElegido);
+
+
+
+
+
+    </script>
+</body>
+</html>
