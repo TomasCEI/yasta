@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+
+body{ display: flex;
+    justify-content: center;}
+
+.home-Restaurant{ display: flex;
+    flex-direction:column ;
+    height: 600px;
+    width: 50%;
+    gap: 20px;}
+    
+.restaurante-one{ 
+        padding: 15px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 30px;
+        border: 2px solid black;
+        border-radius: 20px;}
+
+    
+
+.restaurante-img{ object-fit: cover;
+    height: 250px;
+    width: 300px;
+    border: 1px solid black;
+    border-radius: 10px;}
+
+.categoria{ 
+    padding: 5px;
+    font-size: 14px;}
+
+.h4-rest{ font-size: 14px;
+    font-weight: lighter;}
+
+.bar-descripcion{ font-weight: normal;}
+
+.info-icon{ 
+    margin-right: 5px;
+    margin-top: 10px;}
+    </style>
+</head>
+<body>
+
+
+    <div id="HomeRestaurant" class="home-Restaurant"></div>
+
+<script>
+
+const HomeRestaurant = document.getElementById ("HomeRestaurant")
+
+var restaurantes = [{
+
+        id: "1",
+        imagen: "https://imag.bonviveur.com/pizza-margarita.jpg" ,
+        nombre: "La Playa",
+        descripcion: "Tu nueva pizzería al alcance de todos",
+        categoria: ["Pizza", " Pasta"],
+        icono2:"fa-solid fa-location-dot",
+        direccion: "Villa Azulejo, 12 (Valencia)",
+        icono:"fa-solid fa-phone",
+        telefono:"627 82 67 35",
+        }, {
+
+        id: "2",
+        imagen: "https://piccavey.com/wp-content/uploads/2018/11/Criolla-Valladolid-Spain-Tapas.jpg.webp" ,
+        nombre: "Bar Marcela",
+        descripcion: "Tu nueva pizzería al alcance de todos",
+        categoria: ["Typical spanish", " Croquetas"],
+        icono2:"fa-solid fa-location-dot",
+        direccion: "Calle La Glorieta, 98 (Valencia)",
+        icono:"fa-solid fa-phone",
+        telefono:"926 67 54 25",
+        },{
+
+        id: "3",
+        imagen: "https://media.timeout.com/images/105971281/image.jpg" ,
+        nombre: "붉은 입술",
+        descripcion: "안녕하세요",
+        categoria: "Hotpot",
+        icono2:"fa-solid fa-location-dot",
+        direccion: "Plaza de la Marmota, 52 (Valencia)",
+        icono:"fa-solid fa-phone",
+        telefono:"876 52 63 51",
+        },{
+
+        id: "4",
+        imagen: "https://www.mentta.com/blog/wp-content/uploads/2021/12/dulces.jpg" ,
+        nombre: "María Antonieta",
+        descripcion: "Endulza tu día con nuestros postres a la carta",
+        categoria: "Dulces",
+        icono2:"fa-solid fa-location-dot",
+        direccion: "Avenida Nazal, 34 (Valencia)",
+        icono:"fa-solid fa-phone",
+        telefono:"967 55 46 42",
+        },{
+
+        id: "5",
+        imagen: "https://asadorlabellota.com/wp-content/uploads/2022/01/20220112_190227_0000.png" ,
+        nombre: "Restaurante Rocinante",
+        descripcion: "Ñam Ñam",
+        categoria: "Carne a la brasa",
+        icono2:"fa-solid fa-location-dot",
+        direccion: "Calle La Glorieta, 51 (Valencia)",
+        icono:"fa-solid fa-phone",
+        telefono:"652 89 06 12",
+        },
+
+        ]
+
+
+var RestaurantBox ="";
+
+restaurantes.forEach((bar) => {
+
+    RestaurantBox= RestaurantBox + `<div class= "restaurante-one">
+        <img class="restaurante-img" src= ${bar.imagen} alt="Restaurante"> 
+        <div class="restaurante-Info">
+            <h1>${bar.nombre} </h1><hr> <br> 
+            <h3 class="bar-descripcion">${bar.descripcion} </h3> <br>
+            <div class= "categoria"><h3>${bar.categoria} </h3></div> <br>
+            <h4 class="h4-rest"> <i class="info-icon ${bar.icono2}"></i>${bar.direccion} <br>  <i class="info-icon ${bar.icono}"></i>${bar.telefono} </h4>
+            <a href=  id= ${bar.id}>Ver restaurante </a>
+             
+        </div>
+        </div>`
+})
+
+HomeRestaurant.innerHTML=RestaurantBox;
+
+restaurantes.forEach= ((resta) => {
+
+let RestaurantBox =`< class= "categoria">`;
+bar.categoria.forEach( categoria => {
+
+RestaurantBox+= `<span class="categorias>${categoria}</span>"`
+
+}
+
+
+)
+
+}
+
+)
+</script>
+
+
+
+</body>
+</html>
