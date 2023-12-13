@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: blanchedalmond;
+            font-family: 'Kanit', sans-serif;
+        }
+        .rests{
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            gap: 50px;
+        }
+        .imgs{
+            width: 500px;
+            height: 350px;
+        }
+        .rest{
+            display: flex;
+            flex-direction: column;
+            box-shadow: 1px 1px 15px rgb(0, 0, 0);
+            padding: 20px;
+            border-radius: 20px;
+            width: 500px;
+            height: 620px;
+            background-color: white;
+            transition: all .5s ease-in-out;
+          
+        }
+        .rest:hover{
+            transform: scale(1.05);
+        }
+        .tit{
+            font-size: 250%;
+            margin-bottom: 0;
+            margin-top: 10px;
+        
+        }
+        .desc{
+            color:rgb(43, 43, 43);
+            height: 100px;
+        }
+        .card{
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 20px;
+            margin-right:10px;
+            color:white;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">SELECCIÓN RESTAURANTES</h1>
+    <div id="ListaRestaurantes" class="rests">
+
+    </div>
+</body>
+<script>
+    let totalRest = 0;
+    const divRest = document.getElementById("ListaRestaurantes");
+
+    const restaurantes = [
+        {
+            id:"",
+            nombre:"Calamar a la Romina",
+            imagen:"https://media.istockphoto.com/id/1288064106/es/foto/interior-del-restaurante-vac%C3%ADo.jpg?s=612x612&w=0&k=20&c=ebs-kGCosWx8T1q9TbePSL0Li8ehtZ-5Lla_UzDhCNM=",
+            direccion:"Portal de Belen nº2",
+            telefono:"+34 666 666 666",
+            descrip:"Fusión del mar con la comida saludable para ofrecer una experiencia culinaria refrescante",
+            categoria:["vegetariano","pescado"]
+        },{
+            id:"",
+            nombre:"¿No Tomás nada?",
+            imagen:"https://media.istockphoto.com/id/1146671966/es/foto/cuatro-j%C3%B3venes-amigas-reuni%C3%B3n-para-bebidas-y-comida-haciendo-un-brindis-en-el-restaurante.jpg?s=612x612&w=0&k=20&c=LlhFCl9Qi2gs5sY0S_AB5p9QEY0OdaMwK4ZRyw_M8bo=",
+            direccion:"Plaza Cristina ruiDera",
+            telefono:"+34 666 666 555",
+            descrip:"La comodidad de la comida de toda la vida y la extravagancia de la cultura argentina que hará que tu paladar se derrita",
+            categoria:["tapas","arganetina"]
+        },{
+            id:"",
+            nombre:"A Kike hay para comer",
+            imagen:"https://media.istockphoto.com/id/1343561122/es/foto/primer-plano-de-un-joven-grupo-de-amigos-que-pasan-y-sirven-comida-mientras-disfrutan-juntos.jpg?s=612x612&w=0&k=20&c=o8YLixClBzPoWAeOsq25IcbwcrjRa4tdAgF_hzns4jY=",
+            direccion:"Avenida Al bar",
+            telefono:"+34 666 666 444",
+            descrip:"Rápido, sencillo y al gusto de todo el mundo.",
+            categoria:["comida rápida"]
+        },{
+            id:"",
+            nombre:"Alta coSina",
+            imagen:"https://media.istockphoto.com/id/1388791611/es/foto/estilo-teppanyaki.jpg?s=612x612&w=0&k=20&c=U-IRyNbNwsxH4XWE2pjFRg6XM1Xhx9kpZHgk0nV20jk=",
+            direccion:"Calle CEI sin Wifi",
+            telefono:"+34 666 666 333",
+            descrip:"Deleitate con los platos más cuidados y mejor elaborados de todo el mundo. Experimentación y profesionalidad",
+            categoria:["alta cocina","innovador"]
+        },{
+            id:"",
+            nombre:"Pasta a la Belenyesa",
+            imagen:"https://media.istockphoto.com/id/1180926063/es/foto/propietario-de-una-peque%C3%B1a-empresa-en-la-entrada-mirando-la-c%C3%A1mara.jpg?s=612x612&w=0&k=20&c=y67wRjEEHjQPS8Blp4JaL2W9qoOJFf4dchOmlC4Pyng=",
+            direccion:"Placita de Pablito",
+            telefono:"+34 666 666 222",
+            descrip:"La pasta di la mama!!! Al forno di pietra! OH QUE DELICIA",
+            categoria:["pasta","casero"]
+        }
+    ]
+
+    //Agrego un id a cada elemento
+    restaurantes.forEach((r)=>{
+        totalRest++;
+        r.id = totalRest;
+    })
+
+
+    restaurantes.forEach((r)=>{
+
+        let cat = "";
+
+        r.categoria.forEach((c)=>{
+            cat += `<span class="card" >${c}</span>`;
+
+        });
+
+        //let cat = r.categoria.map(c => `<span class="card">${c}</span>`).join('');
+
+        console.log(cat)
+
+        divRest.innerHTML += ` <div class="rest">
+                                <img src="${r.imagen}" alt="" class="imgs">
+                                <h2 class="tit">${r.nombre}</h2>
+                                <span class="desc">${r.descrip}</span>
+
+                                <div style="margin-top:10px;display:flex">${cat}</div>
+                                <div style="margin-top:20px;display:flex; justify-content:space-between">
+                                    <span><i class="fa-solid fa-location-dot" style="margin-right:10px"></i>${r.direccion} </span>
+                                    <span><i class="fa-solid fa-phone"  style="margin-right:5px"></i> ${r.telefono} </span>
+                                </div>
+                                </div>
+                               `;
+    })
+
+
+
+
+
+</script>
+</html>
