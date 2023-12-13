@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;500;900&display=swap');
+
+*{
+    margin: 0px;
+    font-family: 'Lexend', sans-serif;
+}
+
+:root {
+    --primary: #7FB77E;
+    --secondary: #FFD4D4;
+    --third: #FFC090;
+    --fourth: #B1D7B4;
+    --black: #000000;
+    --white: #FFFFFF;
+    
+
+}
+
+/*Cabecera con el logo a la izquierda y la foro de perfil a la derecha */
+
+.header{
+    width: 100vw;
+    height: 10%;
+    background-color: var(--primary);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position:fixed;
+    top: 0px
+}
+
+.header-logo{
+    width: 70px;
+    height: 70px;
+    display: flex;
+    margin-top: -2%;
+}
+
+.header-perfil{
+    margin-top: 3%;
+    margin-right: 1%;
+    background-color: #000000;
+    border-radius: 100%;
+    height: 58%;
+    width: 10%;
+}
+
+/* Contenedor de información del restaurante*/
+
+.contenedor{
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+/*fotografías del restaurante*/
+
+.contenedor-foto{
+    padding-top: 20%;
+    background-color: var(--black);
+    width: 100%;
+    height: 40%;
+}
+
+/*información del restaurante y botones para ir a la carta y a las reservas */
+
+.contenedor-info{
+    background-color: var(--third);
+    width: 100%;
+    height: 100%;
+}
+
+.contenedor-infoBotones{
+    /*background-color: var(--fourth);*/
+    width: 100%;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
+/* Menú inferior de navegación fijo */
+
+.menu{
+    width: 100vw;
+    height: 80px;
+    background-color: var(--primary);
+    position: fixed;
+    bottom: 0px;
+    border-radius: 100% 100% 0px 0px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.menu-button{
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    border:none;
+}
+
+.menu-buttonQr{
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    bottom: 50px;
+    border-radius: 100%;
+    border:none;
+}
