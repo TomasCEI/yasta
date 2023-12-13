@@ -1,0 +1,106 @@
+/* Initial format*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+/*Import text fonts*/
+@import url('https://fonts.googleapis.com/css?family=Eplilogue');
+
+/* General content styles */
+body {
+    font-family: 'Eplilogue';
+    font-size: 1.1em;
+}
+
+main {
+    padding: 1rem;
+}
+
+:root {
+    --main-background: white;
+    --orange: #FB7126;
+    --blue: #33A99A;
+    --danger: ##DE3B40;
+    --text-black: black;
+    --text-gray: gray;
+}
+
+/*Navigation bar for laptop and big screens*/
+#navBigScreen {
+    background-color: var(--main-background);
+    overflow: hidden;
+    height: 60px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    color:var(--text-black);
+}
+
+#navBigScreen>div {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    z-index: 5;
+}
+
+#navBigScreen a {
+    color: var(--text-black);
+    padding: 0 20px;
+}
+
+#navBigScreen img {
+    height: 60px;
+}
+
+/*Navigation bar for pads and phones*/
+#navSmallScreen {
+    overflow: hidden;
+    background-color: var(--main-background);
+    position: fixed;
+    width: 100%;
+    z-index: 5;
+}
+
+#navSmallScreenLogo {
+    padding: 0 !important;
+}
+
+#navSmallScreenLogo img {
+    height: 40px;
+}
+
+#navSmallScreen #navLinksSmallScreen {
+    display: none;
+}
+
+#navSmallScreen a {
+    color: var(--text-black);
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    display: block;
+}
+
+#navSmallScreen a.icon {
+    background: black;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+#navSmallScreen a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.active {
+    background-color: var(--text-gray);
+    color: white;
+}
