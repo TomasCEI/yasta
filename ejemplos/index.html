@@ -8,13 +8,41 @@
 
     <style>
 
+        * {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
         body {
             margin: 60px;
+            background-color: lightblue;
         }
         .ContentBox {
             height: 100vh;
             width: 80vw;
             background-color: inherit;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: white;
+        }
+
+        .restCard {
+            width: 90vw;
+            height: fit-content;
+            background-color: white;
+            padding-top: 0px;
+            padding-bottom: 50px;
+            border-radius: 20px;
+        }
+
+        .restInfo {
+            padding-left: 30px;
+
+        }
+
+        .restInfo h3 {
+            margin-top: 10px;
         }
 
         .header {
@@ -24,6 +52,8 @@
             background-position: center;
             display: flex;
             align-items: end;
+            border-top-right-radius: 20px;
+            border-top-left-radius: 20px;
         }
 
         .header h1 {
@@ -40,12 +70,32 @@
         hr {
             width: 80vw;
             margin: 40px auto;
-            border: 3px solid lightblue;
+            border: 3px solid;
+            visibility: hidden;
+        }
+
+        .categ {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            margin-top: 30px;
+            margin-left: 20px;
         }
 
         .categorias {
-            display: flex;
-            background-color: aqua;
+            background-color: rgb(123, 199, 224);
+            padding: 15px;
+            color: white;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .restBtn {
+            text-decoration: none;
+            background-color: lightblue;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 20px;
         }
 
         
@@ -54,48 +104,20 @@
 <body>
     
 
-    <h1>Seleccion de Restaurantes
+    <h1>Restaurantes
 
       
     </h1>
     <div class="ContentBox" id="restaurant-box">
     </div>  
 
+    <a href=""></a>
 
+
+    <script src="datos.js"></script>
 
     <script>
 
-        
-        const restaurantes = [
-                {nombre:'Burger King', 
-                imagen:'https://assets-global.website-files.com/631b4b4e277091ef01450237/65207c15448a6fdfb06c58e0_BK_Halloween_PR_Image_1%20(1)%20(1).jpg', 
-                descripcion:'Parrilleros desde 1954', 
-                contacto:{telefono:'111111111', direccion:'calle 1'}, 
-                id:'01', 
-                categoria:['Comida rápida', 'Comida a domicilio', 'Hamburguesas']},
-
-                {nombre:'Saona', 
-                imagen:'https://www.gruposaona.com/app/uploads/2021/11/210930-Saona-Cortes-1.jpg', 
-                descripcion:'Comida mediterranea para ti', 
-                contacto:{telefono:'222222222', direccion:'calle 2'}, 
-                id:'02', 
-                categoria:['Comida mediterranea', 'Comida a domicilio']},
-
-                {nombre:'Telepizza', 
-                imagen:'https://www.cronista.com/files/image/510/510334/63e26a5c9d82d.jpg', 
-                descripcion:'¿Tienes hambre? Pide online tu pizza favorita y disfruta de nuestra deliciosa comida a domicilio.', 
-                contacto:{telefono:'333333333', direccion:'calle 3'}, 
-                id:'03', 
-                categoria:['Pizza', 'Comida a domicilio']},
-                
-                {nombre:'Miss Sushi', 
-                imagen:'https://misssushi.es/wp-content/uploads/1.1.MENU-SUPREME-Miss-sushi-opti.jpg', 
-                descripcion:'Sushi de calidad al mejor precio', 
-                contacto:{telefono:'444444444', direccion:'calle 4'}, 
-                id:'04', 
-                categoria:['Sushi', 'Comida a domicilio']
-            }];
-        
         
         const restaurante = document.getElementById("restaurant-box");
 
@@ -105,27 +127,32 @@
 
             let listacategorias="<div class='categ'>";
 
-            rest.categoria.forEach( categoria => {
+            rest.categoria.forEach( cate => {
                 listacategorias += 
-                `<span class="categorias">${rest.categoria}</span>`
+                `<span class="categorias">${cate}</span>`
             });
         listacategorias+= "</div>";
 
 
         restaurante.innerHTML += 
-        `
-        <div class="header" style="background-image:url('${rest.imagen}')">
-           <h1>${rest.nombre}</h1> 
-        </div>
-        <div>${listacategorias}</div><br>
+        `<div class='restCard'>
+            <div class="header" style="background-image:url('${rest.imagen}'">
+                <h1>${rest.nombre}</h1> 
+            </div>
+            <div>${listacategorias}</div><br>
+            <div class='restInfo'>
+                <h3>${rest.descripcion}</h3>
+                <p>Dirección: ${rest.contacto.direccion}</p>
+                <p>Número de telf.: ${rest.contacto.telefono}</p><br>
+                <a class='restBtn' href="./restaurante.html?id=${rest.id}">Ver restaurante</a>
+            </div>
+        </div><hr>`
         
-        <h3>${rest.descripcion}</h3>
-        <p>Dirección: ${rest.contacto.direccion}</p>
-        <p>Número de telf.: ${rest.contacto.telefono}</p><hr>`
         
     });
 
-
+ // querySelector => selecciona id o clases depende de la especificación
+ // getElementById / getElementByClassName
             
         
     </script>

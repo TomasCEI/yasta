@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="ContentBox" id="restaurant-info">
+    </div>  
+
+
+    <script src="datos.js"></script>
+
+    <script>
+
+        
+
+        restaurante.innerHTML = "";
+
+        const urlParametros = new URLSearchParams(window.location.search);
+
+        const miId=urlParametros.get("id")
+
+        let selectedRest = restaurantes.find(
+            (resto) => resto.id == miId
+        );
+
+    const restInfo = document.getElementById("restaurant-info");
+
+    restInfo.innerHTML += `<div>
+         <span>${selectedRest.nombre}</span>
+        </div>`
+
+
+
+    </script>
+    
+</body>
+</html>
