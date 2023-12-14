@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <div id="example">
+    </div>
+    
+<script>
+
+
+/*var entrantes = [
+
+        {nombre:'',
+        descripcion:'',
+        precio:'',
+        alergenos:[''],
+        paxPorcion:''}, */
+
+entrantes = [
+
+        {nombre:'Tabule de Quinoa',
+        descripcion:'Ensalada de quinoa con tomate, pepino, perejil fresco, menta y aderezo de limón.',
+        precio:'10€',
+        alergenos:['Gluten', 'Frutos secos'],
+        paxPorcion:'3'},
+
+        {nombre:'Hummus de Berenjena Asada',
+        descripcion:'Puré de garbanzos con tahini, berenjena asada, ajo, limón y aceite de oliva.',
+        precio:'8€',
+        alergenos:['Sésamo'],
+        paxPorcion:'3'},
+
+        {nombre:'Calamares a la romana',
+        descripcion:'Calamares fritos con una mezcla de harina de garbanzos y hierbas mediterráneas.',
+        precio:'12€',
+        alergenos:['Gluten', 'Moluscos'],
+        paxPorcion:'2'},
+
+        {nombre:'Dolma de Hojas de Parra',
+        descripcion:'Hojas de parra rellenas de arroz, piñones, pasas y especias, servidas con salsa tzatziki',
+        precio:'9€',
+        alergenos:['Frutos secos', 'Lácteos'],
+        paxPorcion:'2'},
+
+]
+
+/*var platosPrincipales = [
+
+        {nombre:'',
+        descripcion:'',
+        precio:'',
+        alergenos:['']}, */
+
+platosPrincipales = [
+
+        {nombre:'Moussaka',
+        descripcion:'Capas de berenjena, carne de cordero sazonada, tomate y bechamel, horneadas a la perfección.',
+        precio:'18€',
+        alergenos:['Gluten', 'Lácteos']},
+
+        {nombre:'Paella de Marisco',
+        descripcion:'Arroz con calamares, mejillones, gambas y pescado en una base de sofrito de tomate y azafrán.',
+        precio:'22€',
+        alergenos:['Marisco']},
+
+        {nombre:'Pollo al Limón con Aceitunas',
+        descripcion:'Pollo asado con limón, aceitunas Kalamata, tomates cherry y hierbas mediterráneas.',
+        precio:'16€',
+        alergenos:['']},
+
+        {nombre:'Pasta al Pesto de Albahaca',
+        descripcion:'Pasta al dente con salsa de pesto fresco de albahaca, piñones y queso parmesano.',
+        precio:'14€',
+        alergenos:['Frutos secos', 'Lácteos']},
+
+]
+
+
+
+const cartaRestaurante = document.getElementById("example");
+
+cartaRestaurante.innerHTML = "";
+
+entrantes.forEach( (entra) => {
+    cartaRestaurante.innerHTML +=  `
+        <div>
+           <h1>${entra.nombre}</h1>
+           <h3>${entra.descripcion}</h3>
+           <span>${entra.precio}</span>
+           <span>${entra.alergenos}</span>
+        </div><br><hr>`
+})
+
+platosPrincipales.forEach( (pPri) => {
+    cartaRestaurante.innerHTML +=  `
+        <div>
+           <h1>${pPri.nombre}</h1>
+           <h3>${pPri.descripcion}</h3>
+           <span>${pPri.precio}</span>
+           <span>${pPri.alergenos}</span>
+        </div><br><hr>`
+})
+
+
+
+
+
+
+
+
+/*
+Postres:
+
+Baklava
+Capas de hojaldre, nueces y miel, horneadas hasta obtener una textura crujiente.
+Precio: $7
+Alérgenos: Frutos secos
+
+Tarta de Almendra y Naranja
+Deliciosa tarta con base de almendra, relleno de crema de naranja y cubierta con almendras tostadas.
+Precio: $9
+Alérgenos: Frutos secos, Lácteos
+
+Yogur Griego con Miel y Nueces
+Yogur cremoso servido con miel de la región y nueces picadas.
+Precio: $6
+Alérgenos: Lácteos, Frutos secos
+
+Sorbete de Limón y Menta
+Refrescante sorbete con sabores cítricos de limón y un toque de menta fresca.
+Precio: $5
+Alérgenos: Ninguno */
+
+</script>
+
+
+
+</body>
+</html>
