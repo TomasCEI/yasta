@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vista restaurante</title>
+    <script src="restos.js"></script>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header id="Header" >
+    </header>
+    <div id="Tit">
+
+    </div>
+
+    
+</body>
+<script>
+
+    //Guardo los datos pasados por la URL
+    const params = new URLSearchParams(window.location.search);
+    const identificador = params.get("id");
+    //console.log(identificador);
+
+    const restoMostrar = restaurantes.find((r)=> r.id == Number(identificador));
+
+    const header = document.getElementById("Header");
+    const tit = document.getElementById("Tit");
+
+    header.style = `height: 500px; background-image: url(${restoMostrar.imagen}); background-size:cover; filter: blur(4px);`;
+    tit.innerHTML =`<h1 style="position: relative;    top: -111px;
+    left: 60px;
+    font-size: 300%;
+    color: white;
+    text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000, 1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
+}">${restoMostrar.nombre}</h1>`;
+
+
+
+    
+
+
+
+  
+</script>
+</html>
