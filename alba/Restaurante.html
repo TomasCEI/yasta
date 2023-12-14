@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="homeAlba.html">
+</head>
+<style>
+    body{display: flex;
+        justify-content: center;}
+
+.div-principal{ display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(201, 155, 115);
+    height: 900px;
+    width: 80%;}
+
+.hot-img{ width: 1000px;
+    height: 200px;
+    object-fit: cover;}
+
+.info-Hotpot{ 
+
+}
+
+</style>
+<body>
+    
+<div class="div-principal">
+    <h1>붉은 입술</h1>
+<img class="hot-img" src="https://media.timeout.com/images/105971281/image.jpg" alt="붉은 입술">
+
+<div class="info-Hotpot">
+
+</div>
+</div>
+
+
+<script src="./datos.js">
+    
+
+const urlParams = new URLSearchParams(window.location.search);
+
+const miId=urlParams.get ("id");
+
+console.log("params:", urlParams)
+
+let restauranteElegido= restaurantes.find(
+    (resta) => resta.id == Number(miId)
+
+
+);
+//alert(restauranteElegido.nombre)
+</script>
+
+
+</body>
+</html>

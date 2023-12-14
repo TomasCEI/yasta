@@ -59,7 +59,7 @@ body{ display: flex;
 
 const HomeRestaurant = document.getElementById ("HomeRestaurant")
 
-var restaurantes = [{
+const restaurantes = [{
 
         id: "1",
         imagen: "https://imag.bonviveur.com/pizza-margarita.jpg" ,
@@ -130,7 +130,7 @@ restaurantes.forEach((bar) => {
             <h3 class="bar-descripcion">${bar.descripcion} </h3> <br>
             <div class= "categoria"><h3>${bar.categoria} </h3></div> <br>
             <h4 class="h4-rest"> <i class="info-icon ${bar.icono2}"></i>${bar.direccion} <br>  <i class="info-icon ${bar.icono}"></i>${bar.telefono} </h4>
-            <a href=  id= ${bar.id}>Ver restaurante </a>
+            <a href="./Restaurante.html?id=${bar.id}">Ver restaurante </a>
              
         </div>
         </div>`
@@ -145,14 +145,8 @@ bar.categoria.forEach( categoria => {
 
 RestaurantBox+= `<span class="categorias>${categoria}</span>"`
 
-}
+})});
 
-
-)
-
-}
-
-)
 </script>
 
 
