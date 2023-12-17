@@ -10,66 +10,15 @@
 
 <body>
     <main>
-
-        <div id="restaurantContainer">
+        <section>
             <h1>LISTADO DE RESTAURANTES</h1>
-        </div>
+            <div id="restaurantCards"></div>
+        </section>
     </main>
     <!-- JavaScipt file import-->
     <script src="/js/datos.js"></script>
-   
-   <script>
+    <script src="/js/home.js"></script>
 
-        const restaurantes = [{
-            id: 1,
-            categoria: ["Carne", 'Argentino'],
-            img: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-            contacto: {
-                direccion: 'Calle 1, #6',
-                telefono: 56756798,
-            }
-        }, {
-            id: 2,
-            categoria: ["Vegano", 'Dieta'],
-            img: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-            contacto: {
-                direccion: 'Calle Colorida, #7',
-                telefono: 89696898,
-            }
-        }, {
-            id: 3,
-            categoria: ["Italiano", 'Postres'],
-            img: 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?q=80&w=1980&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-            contacto: {
-                direccion: 'Calle Pintoresco, #8',
-                telefono: 89067898,
-            }
-        }];
-
-        restaurantes.forEach(rest => {
-
-            let htmlListaCategorias = "";
-            rest.categoria.forEach(categoria => {
-                htmlListaCategorias += `<span class="categorias">${categoria}</span>`
-            });
-
-            const boxCategorias = document.getElementById("restaurantContainer");
-
-            restaurantes.forEach((rest) => {
-                boxCategorias.innerHTML += `<div class="restaurantCard">
-            <img src="${rest.img}" alt="${rest.altTextImage}"/>
-    <div class="restaurantInformation">
-        <h3>${rest.categoria}</h3>
-        <h3>${rest.contacto.direccion}</h3>
-        <h3>${rest.contacto.telefono}</h3>
-        <a href="./restaurante.html?id=${rest.id}">Ver Restaurante</a>
-        
-    </div>
- </div>`;
-            });
-        });
-
-    </script>
 </body>
 
 </html>

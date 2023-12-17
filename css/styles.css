@@ -149,8 +149,6 @@ align-items: center;
 
 /* Styles for Template Preview in templates page*/
 .templatePreview {
-    display: ;
-    flex-direction: column;
     width: 100%;
     margin-top: 1rem;
     padding: 1rem;
@@ -161,7 +159,7 @@ align-items: center;
 }
 
 /*Styles for restaurant container*/
-#restaurantContainer {
+#restaurantCards {
     display: grid;
     grid-template-columns: repeat(4,1fr);
     width: 100%;
@@ -181,6 +179,17 @@ align-items: center;
     height: 300px;
     object-fit: cover;
 }
+
+.categoria {
+    background-color: #8f8c8c;
+    text-transform: uppercase;
+    font-size: small;
+    color: white;
+    padding: 0.2rem;
+    margin-right: 0.5rem;
+    border-radius: 4px;
+}
+
 /*All media query */
 
 /*Media query for Nav bar*/
