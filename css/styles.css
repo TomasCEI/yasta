@@ -60,18 +60,18 @@ main {
 
 /*Navigation bar for pads and phones*/
 #navSmallScreen {
+display: flex;
+justify-content: space-around;
+align-items: center;
     overflow: hidden;
     background-color: var(--main-background);
     position: fixed;
     width: 100%;
     z-index: 5;
+    padding: 10px;
 }
 
-#navSmallScreenLogo {
-    padding: 0 !important;
-}
-
-#navSmallScreenLogo img {
+#navSmallScreen img {
     height: 40px;
 }
 
@@ -81,10 +81,8 @@ main {
 
 #navSmallScreen a {
     color: var(--text-black);
-    padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
-    display: block;
 }
 
 #navSmallScreen a.icon {
@@ -103,4 +101,107 @@ main {
 .active {
     background-color: var(--text-gray);
     color: white;
+}
+/* Styles for Tool Bar in templates page */
+.toolBar {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    width: 100%;
+    gap: 1rem;
+}
+
+.btnIcon {
+    background-color: rgb(146, 147, 148);
+    border: none;
+    padding: 12px 16px;
+    cursor: pointer;
+    /* Mouse pointer on hover */
+    border-radius: 4px;
+}
+
+.btnIcon:hover {
+    background-color: #8f8c8c;
+}
+
+/*Tooltip styles */
+.toolTip {
+    position: relative;
+    display: inline;
+}
+
+.toolTip .toolTipText {
+    visibility: hidden;
+    width: 120px;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    bottom: 90%;
+    left: 20%;
+}
+
+.toolTip:hover .toolTipText {
+    visibility: visible;
+}
+
+/* Styles for Template Preview in templates page*/
+.templatePreview {
+    display: ;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 4px;
+    box-shadow:
+        0 0 0 2px rgb(255, 255, 255),
+        0.3em 0.3em 1em rgba(0, 0, 0, 0.3); 
+}
+
+/*Styles for restaurant container*/
+#restaurantContainer {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    width: 100%;
+    gap: 1rem;   
+}
+.restaurantCard {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 4px;
+    box-shadow:
+        0 0 0 2px rgb(255, 255, 255),
+        0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+}
+
+.restaurantCard img {
+    width:100%;
+    height: 300px;
+    object-fit: cover;
+}
+/*All media query */
+
+/*Media query for Nav bar*/
+@media only screen and (max-width: 600px) {
+    #navBigScreen {
+        display: none;
+    }
+
+    .templatesContainer {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media only screen and (min-width:601px) {
+    #navSmallScreen {
+        display: none;
+    }
+
+    main {
+        margin-top: 60px;
+    }
 }

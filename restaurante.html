@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurante</title>
+</head>
+<body>
+    <main id="contenidoRestaurante"></main>
+    <!-- JavaScipt file import-->
+    <script src="/js/datos.js"></script>
+    <script>
+        //devuelve el primer elemento que encuentra
+        let restauranteElegido=restaurantes.find(
+            (resto) => resto.id == Number(miId)
+        );
+
+        // devuelve una lista
+        let restaurantesPremium=restaurantes.filter(
+            (resto) => (resto.premium == true)
+        );
+
+        //devuelve una lista
+        let restaurantesVeganos=restaurantes.filter(
+            (resto) => (resto.categorias.includes("vegano"))
+        )
+
+        const parrafo=document.getElementById("contenidoRestaurante");
+
+        restaurantesPremium.forEach( resto => {
+            parrafo.innerHTML+=`<div class="premium">${resto.nombre}</div>`;
+        })
+
+    </script>
+</body>
+</html>
