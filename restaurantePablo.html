@@ -1,26 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vista restaurante</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="restos.js"></script>
     <style>
-        body{
+        body {
             margin: 0;
             padding: 0;
+            width: 100%;
+        }
+
+        .card {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px;
+            border: 1px solid black;
+            padding: 20px;
+
+
+        }
+
+        .desc {
+            color: rgb(43, 43, 43);
+            height: 100px;
+            width: 70%;
+        }
+
+        .data {
+            display: flex;
+            flex-direction: column;
+            margin-left: 20px;
+        }
+
+        .no_margin {
+            margin: 0
+        }
+
+        .precio {
+            font-size: 120%;
+            font-weight: bold;
+            background-color: black;
+            color: white;
+            height: 20px;
+            padding: 20px;
+            border-radius: 50px;
+            text-align: center;
+
+        }
+
+        .anyadir {
+            border: 1px solid black;
+            padding: 10px;
+            width: 120px;
+            text-align: center;
+            border-radius: 20px;
+            background-color: black;
+            color: white;
+        }
+
+        .anyadir:hover {
+            background-color: blanchedalmond;
+            color: black;
+            cursor: pointer;
+        }
+
+        .border {
+            border: 1px solid black;
+            width: 100px;
+            height: 100px;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            border-radius: 50px;
+            background-color: white;
+        }
+
+        .cart {
+            font-size: 300%;
+            padding: 20px;
+            padding-top: 27px;
+
+
+        }
+
+        .border:hover {
+            cursor: pointer;
+            background-color: black;
+            color: white;
+
+        }
+
+        .modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 800px;
+            background-color: white;
+            border: 1px solid black;
+            overflow: auto;
+        }
+
+        .isnot_shown {
+            display: none;
+        }
+
+        .cantidad{
+            width: 20px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid black;
+            border-radius: 50px;
+            position: absolute;
+            left: 27px;
+            top: 28px;
+            background-color: white;
+        }
+
+        .punto{
+            width: 15px;
+            height: 15px;
+            background-color: red;
+            border-radius: 50px;
+            position: fixed;
+            bottom: 110px;
+            right: 40px;
         }
     </style>
 </head>
+
 <body>
 
-    <header id="Header" >
+    <header id="Header">
     </header>
-    <div id="Tit">
+    <div id="Tit" style="height: 0;">
 
     </div>
 
-    
+    <form id="Menu" action="restaurantePablo.html" method="get">
+
+    </form>
+
+    <div id="carro" class="border" onclick="mostrarCarrito()"><i class="fa-solid fa-cart-shopping cart"></i></div>
+    <div id="punto" class="punto isnot_shown"></div>
+
+    <div id="modal" class="modal isnot_shown">
+
+    </div>
+
+
+
 </body>
 <script>
 
@@ -29,25 +165,111 @@
     const identificador = params.get("id");
     //console.log(identificador);
 
-    const restoMostrar = restaurantes.find((r)=> r.id == Number(identificador));
+    const restoMostrar = restaurantes.find((r) => r.id == Number(identificador));
 
     const header = document.getElementById("Header");
     const tit = document.getElementById("Tit");
+    const menuDiv = document.getElementById("Menu");
+    const punto = document.getElementById("punto");
+    const modal = document.getElementById("modal");
+
+    const ElCarrito = [];
 
     header.style = `height: 500px; background-image: url(${restoMostrar.imagen}); background-size:cover; filter: blur(4px);`;
-    tit.innerHTML =`<h1 style="position: relative;    top: -111px;
-    left: 60px;
-    font-size: 300%;
-    color: white;
-    text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000, 1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
-}">${restoMostrar.nombre}</h1>`;
+    tit.innerHTML = `<h1 style="position: relative;    top: -111px;
+                    left: 60px;
+                    font-size: 300%;
+                    color: white;          width:1000px;
+                    text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000, 1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
+          
+                    }">${restoMostrar.nombre}</h1>`;
+
+
+    const menu = [];
+
+    menus.forEach((m) => {
+
+        if (m.restaurante == restoMostrar.nombre)
+            menu.push(m);
+
+    });
+
+    menu.forEach((m) => {
+        menuDiv.innerHTML += `<div class="card">
+                                <img src="${m.img}" alt="plato" style="width: 340px; height: 200px">
+                                <div class="data">
+                                    <h2 class="no_margin">${m.nombre}</h2>
+                                    <span class="desc no_margin">${m.descrip}</span>
+                                    <span class="anyadir" onclick="addCarrito(${m.id})">Añadir a carrito</span>
+                                </div>
+                                <span class="precio">${m.precio}€</span>
+                                
+
+                            </div>`;
+    });
+
+
+    function mostrarCarrito() {
+
+        modal.classList.toggle("isnot_shown");
+
+    }
+
+    function addCarrito(id) {
+
+        modal.innerHTML = " ";
+
+        menus.forEach((m) => {
+            if (m.id == id) {
+                m.cantidad++;
+
+            }
+
+        });
+
+        menus.forEach((m) => {
+
+            if (m.cantidad >= 1) {
+                let tarjeta = `<div class="card">
+                        <img src="${m.img}" alt="plato" style="width: 340px; height: 200px">
+                        <div class="data">
+                            <h2 class="no_margin">${m.nombre}</h2>
+                            <br>
+                            <span class="precio">${m.precio * m.cantidad}€</span>
+                            <span class="cantidad">${m.cantidad}</span><br>
+                            <i onclick="addCarrito(${m.id})" class="fa-solid fa-plus"></i>
+                        </div>
+                    </div>`;
+
+                modal.innerHTML += tarjeta
+
+
+            }
+
+
+        });
 
 
 
-    
+
+        alert("producto añadido");
 
 
 
-  
+        ElCarrito.push(id);
+        punto.classList.remove("isnot_shown");
+
+        console.log(ElCarrito)
+
+    }
+
+
+
+
+
+
+
+
 </script>
+
 </html>
