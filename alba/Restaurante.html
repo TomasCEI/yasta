@@ -14,7 +14,7 @@
     flex-direction: column;
     align-items: center;
     background-color: rgb(201, 155, 115);
-    height: 900px;
+    height: 100%;
     width: 80%;}
 
 .hot-img{ width: 1000px;
@@ -22,32 +22,84 @@
     object-fit: cover;}
 
 .info-Hotpot{ 
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
     height: 300px;
     width: 90%;
     margin-top: 20px;
     background-color: antiquewhite;
-
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight:lighter;
+    padding: 10px;
+    font-size: 14px;
 }
 
 
 .menu{
-    width: 95%;
+    width: 90%;
+    height: 100%;
     background-color: antiquewhite;
-    display: flex;
-    margin-top: 20px;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
+  border-radius: 10px;
 }
 .diseño-box{
-    display: inline-block;
+
+  display: flex;
+  flex-direction: row;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    gap: 30px;
     justify-content: center;
+    margin-top: 30px;
 
  }
 .one{display: flex;
     flex-direction: column;
-    width: 100px;
-    height: 100px;
+    width: 300px;
+    height: 400px;
+    background-color: burlywood;
+    border-radius: 10px;
+    padding: 15px;
 
 }
+.ingrediente-img{ height: 250px;
+width: 100%;
+object-fit: cover;
+
+
+}
+.info-plato{ 
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    gap: 10px;
+    margin: 0;
+
+}
+.h4precio{
+    margin: 0;
+    font-weight: bolder;
+}
+.h3descripcion{
+    margin: 0;
+    font-weight: lighter;
+    margin-bottom: 30px;
+}
+.h2name{
+   margin: 0; 
+   margin-top: 10px;
+}
+input{
+    width: 40px;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    margin-top: 10px;
+}
+
 
 </style>
 <body>
@@ -57,10 +109,21 @@
 <img class="hot-img" src="https://media.timeout.com/images/105971281/image.jpg" alt="붉은 입술">
 
 <div class="info-Hotpot">
-   DESCRIPCION
-</div>
+   <h3>Bienvenido a 'Sabor de Seúl', un rincón auténtico que transporta los sentidos a la vibrante cultura culinaria de Corea del Sur.
+    <br> Situado en el corazón de la ciudad, este restaurante te invita a sumergirte en una experiencia gastronómica única y fascinante. <br><br>
+    El aroma seductor de especias exóticas y sabores tentadores flota en el aire, anticipando la deliciosa aventura culinaria que te aguarda.
+    <br> El menú, cuidadosamente elaborado por expertos chefs coreanos, ofrece una amplia gama de platos tradicionales que despiertan el paladar y deleitan los sentidos.
 
-<div  id="Plato" class="menu">wefef
+<br><br>Desde el bullicioso bulgogi marinado con sabores intensos hasta el reconfortante bibimbap servido en un caliente dol sot, cada plato está preparado con ingredientes frescos y auténticos,
+<br> destacando la fusión perfecta entre lo picante, lo dulce, lo salado y lo ácido, características emblemáticas de la gastronomía coreana.</h3> 
+
+
+</div>
+<h2>Menu</h2>
+<div  id="Plato" class="menu">  
+    <form action="get" id="Formplatos">
+        <input type="submit">
+    </form> 
     </div>
     
 </div>
@@ -70,7 +133,9 @@
 
 
 
-<script src="./datos.js">
+<script src="./datos.js"></script>
+
+<script>
     
 
 const urlParams = new URLSearchParams(window.location.search);
@@ -87,24 +152,28 @@ let restauranteElegido= restaurantes.find(
 //alert(restauranteElegido.nombre)
 
 
-const menuRestaurante = document.getElementById ("Plato");
+const menuRestaurante = document.getElementById("Plato");
+const Formplatos =.document.getElementById("Formplatos")
+console.log("menuRestaurante", menuRestaurante)
 const menu =[{
-        nombre: "Kimchi",
+       
+        id:"1",
+        nombre: "Kimchi (김치)",
         descripcion: "Col fermentada picante",
         precio:"2.50",
         imagen: "https://www.orientalmarket.es/recetas/wp-content/uploads/2022/05/kimchi.jpeg",
     },
-    {
-        nombre: "Kimchi",
-        descripcion: "Col fermentada picante",
-        precio:"2.50",
-        imagen: "https://www.orientalmarket.es/recetas/wp-content/uploads/2022/05/kimchi.jpeg",
+    {  id:"2",
+        nombre: "Bibimbap (비빔밥)",
+        descripcion: "Se trata de un cuenco con arroz en la base y sobre él se añade carne o pescado, acabando con un huevo frito sobre él",
+        precio:"7",
+        imagen: "https://imag.bonviveur.com/bibimbap-coreano.jpg",
     },
-    {
-        nombre: "Kimchi",
-        descripcion: "Col fermentada picante",
-        precio:"2.50",
-        imagen: "https://www.orientalmarket.es/recetas/wp-content/uploads/2022/05/kimchi.jpeg",
+    {   id:"3",
+        nombre: "Songpyeon (송편)",
+        descripcion: "Pequeños pasteles de arroz",
+        precio:"4.5",
+        imagen: "https://bpb-us-w2.wpmucdn.com/sites.gsu.edu/dist/4/10576/files/2018/10/flowersongpyeon-pr7gi4.png",
 
     },
     ]
@@ -113,19 +182,20 @@ const menu =[{
 menu.forEach((platillo) => {
 
     menuRestaurante.innerHTML += `
-    <h2>Menu</h2>
-        <div class="diseño-box"> <h3>Entrantes</h3>
+ 
+        <div class="diseño-box" id="Form-platos">  
          <div class="one">
-            <img src="${platillo.imagen}" alt="Imagen"> 
-            <h2>${platillo.nombre}</h2>
-            <h3> ${platillo.descripcion}</h3>
-            <h4>${platillo.precio}</h4>
+            <img class="ingrediente-img" src="${platillo.imagen}" alt="Imagen"> 
+            <div class="info-plato">
+            <h2 class="h2name">${platillo.nombre}</h2>
+            <h3class="h3descripcion"> ${platillo.descripcion}</h3> <br><br>
+            <h4class="h4precio">${platillo.precio}</h4>
+            </div>
+            <input type="number" value="0" name="cantidad_${platillo.id}">
             </div>
         </div>`});
 
-
-
-
+Formplatos.innerHTML+="<input type='submit' value>"
 </script>
 
 
