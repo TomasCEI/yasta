@@ -32,7 +32,7 @@
         //const primerAlumno=urlParams.get("alumno");
         //const segundoAlumno=urlParams.get("alumno2");
 
-        const miId=urlParams.get("id");
+        const miId=urlParams.get("id"); // vale 983 en el caso de enviar verRestos.html?id=983
         
         
         //const miNombre=urlParams.get("nombre");
@@ -67,24 +67,30 @@
             (resto) => resto.id == Number(miId) 
         );
 
+
+
+      
+
+
         const parrafo=document.getElementById("parrafo");
         const imagen=document.getElementById("imagen");
         const titulo=document.getElementById("titulo");
         /*
 
         // devuelve una lista
-        let A_restaurantesPremium=listaRestos.filter( 
+        let A_restaurantesPremium=restos.filter( 
             (resto) => (resto.tf_premium == true)
         );
+        A_restaurantesPremium.forEach( resto => {
+            parrafo.innerHTML+=`<div class="premium">${resto.nombre}</div>`;
+        })
 
         // devuelve una lista
          let A_restaurantesVeganos=listaRestos.filter(
             (rest) => (rest.categorias.includes("vegano"))
         ) 
         
-        restaurantesPremium.forEach( resto => {
-            parrafo.innerHTML+=`<div class="premium">${resto.nombre}</div>`;
-        })
+        
         */
 
         // devuelve :

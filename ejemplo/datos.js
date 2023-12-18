@@ -4,6 +4,7 @@ const datos= {
         {
             id: 25,
             nombre: "El Boliche de Alberto",
+            tf_premium: true,
             imagen: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmVzdGF1cmFudGV8ZW58MHx8MHx8fDA%3D",
             descripcion:"Las mejores Carnes de la ciudad",
             contacto: {
@@ -17,6 +18,7 @@ const datos= {
         {
             id: 33,
             nombre: "Heladeria Juaja",
+            tf_premium: true,
             imagen: "https://images.unsplash.com/photo-1578474846511-04ba529f0b88?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHJlc3RhdXJhbnRlfGVufDB8fDB8fHww",
             descripcion:"Helados artesanales",
             contacto: {
@@ -30,6 +32,7 @@ const datos= {
         {
             id: 983,
             nombre: "Manush Bar",
+            tf_premium: false,
             imagen: "https://images.unsplash.com/photo-1592861956120-e524fc739696?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHJlc3RhdXJhbnRlfGVufDB8fDB8fHww",
             descripcion:"La mejor Cerveza artesanal",
             contacto: {
