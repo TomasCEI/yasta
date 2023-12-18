@@ -1,7 +1,7 @@
-const restaurantCards = document.getElementById("restaurantCards");
+const menuCards = document.getElementById("menuCards");
 
-const getRestaurantCategoriesSpans = (categories) => {
-    return categories.map(categorie => {
+const getRestaurantMenuSpans = (menu) => {
+    return menu.map(categorie => {
         return `<span class="categoria"># ${categorie}</span>`
     }).join("")
 } 

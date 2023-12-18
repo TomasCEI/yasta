@@ -48,8 +48,8 @@ const getRestaurantInformationDiv = (restaurant) => {
     return (
         `<div class="restaurantInformation">
             <h3>${getRestaurantCategoriesSpans(restaurant.categorias)}</h3>
-            <h3>${restaurant.contacto.direccion}</h3>
-            <h3>${restaurant.contacto.telefono}</h3>
+            <h3>Dirección: ${restaurant.contacto.direccion}</h3>
+            <h3>Teléfono: ${restaurant.contacto.telefono}</h3>
             <a href="./restaurante.html?id=${restaurant.id}">Ver Restaurante</a>          
         </div>`
     )
