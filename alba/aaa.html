@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+
+.menu{
+    width: 90%;
+    height: 100%;
+    background-color: antiquewhite;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.diseño-box{
+ 
+  display: flex;
+  flex-direction: row;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+
+ }
+.one{display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 400px;
+    background-color: burlywood;
+    border-radius: 10px;
+    padding: 15px;
+
+}
+.ingrediente-img{ height: 2500px;
+width: 100%;
+object-fit: cover;
+
+
+}
+.info-plato{ 
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    gap: 10px;
+    margin: 0;
+
+}
+.h4precio{
+    margin: 0;
+}
+.h3descripcion{
+    margin: 0;
+    font-weight: lighter;
+    margin-bottom: 30px;
+}
+.h2name{
+   margin: 0; 
+   margin-top: 10px;
+}
+</style>
+
+
+</head>
+<body>
+    <div  id="Plato" class="menu">
+        <h2>Menu</h2>
+        <h3>Entrantes</h3>
+    <div class="diseño-box"> 
+     <div class="one">
+        <img class="ingrediente-img" src="/alba/kimchi.jpeg" alt="Imagen"> 
+        <div class="info-plato">
+        <h2 class="h2name">Kimchi</h2>
+        <h3 class="h3descripcion"> Col</h3>
+        <h4 class="h4precio">2.5</h4>
+        </div>
+
+        </div>
+        <div class="one">
+            <img class="ingrediente-img" src="/alba/kimchi.jpeg" alt="Imagen"> 
+            <div class="info-plato">
+            <h2 class="h2name">Kimchi</h2>
+            <h3 class="h3descripcion"> Col</h3>
+            <h4 class="h4precio">2.5</h4>
+            </div>
+    </div>
+</div>
+
+
+</body>
+</html>

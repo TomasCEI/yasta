@@ -22,6 +22,30 @@
     object-fit: cover;}
 
 .info-Hotpot{ 
+    height: 300px;
+    width: 90%;
+    margin-top: 20px;
+    background-color: antiquewhite;
+
+}
+
+
+.menu{
+    width: 95%;
+    background-color: antiquewhite;
+    display: flex;
+    margin-top: 20px;
+    flex-direction: row;
+}
+.diseño-box{
+    display: inline-block;
+    justify-content: center;
+
+ }
+.one{display: flex;
+    flex-direction: column;
+    width: 100px;
+    height: 100px;
 
 }
 
@@ -33,9 +57,17 @@
 <img class="hot-img" src="https://media.timeout.com/images/105971281/image.jpg" alt="붉은 입술">
 
 <div class="info-Hotpot">
+   DESCRIPCION
+</div>
 
+<div  id="Plato" class="menu">wefef
+    </div>
+    
 </div>
-</div>
+
+
+
+
 
 
 <script src="./datos.js">
@@ -53,6 +85,47 @@ let restauranteElegido= restaurantes.find(
 
 );
 //alert(restauranteElegido.nombre)
+
+
+const menuRestaurante = document.getElementById ("Plato");
+const menu =[{
+        nombre: "Kimchi",
+        descripcion: "Col fermentada picante",
+        precio:"2.50",
+        imagen: "https://www.orientalmarket.es/recetas/wp-content/uploads/2022/05/kimchi.jpeg",
+    },
+    {
+        nombre: "Kimchi",
+        descripcion: "Col fermentada picante",
+        precio:"2.50",
+        imagen: "https://www.orientalmarket.es/recetas/wp-content/uploads/2022/05/kimchi.jpeg",
+    },
+    {
+        nombre: "Kimchi",
+        descripcion: "Col fermentada picante",
+        precio:"2.50",
+        imagen: "https://www.orientalmarket.es/recetas/wp-content/uploads/2022/05/kimchi.jpeg",
+
+    },
+    ]
+
+
+menu.forEach((platillo) => {
+
+    menuRestaurante.innerHTML += `
+    <h2>Menu</h2>
+        <div class="diseño-box"> <h3>Entrantes</h3>
+         <div class="one">
+            <img src="${platillo.imagen}" alt="Imagen"> 
+            <h2>${platillo.nombre}</h2>
+            <h3> ${platillo.descripcion}</h3>
+            <h4>${platillo.precio}</h4>
+            </div>
+        </div>`});
+
+
+
+
 </script>
 
 
