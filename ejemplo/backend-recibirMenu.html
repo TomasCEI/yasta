@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    muchas gracias!
+
+    <script>
+        // Paso 1: Leer la URL
+        const urlParams = new URLSearchParams(window.location.search);        
+        console.log(urlParams);
+        const A_platos=urlParams.get("plato"); // vale 983 en el caso de enviar verRestos.html?id=983
+        console.log(A_platos);
+    </script>
+</body>
+</html>
