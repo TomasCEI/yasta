@@ -1,4 +1,5 @@
 let totalRest = 0;
+let totalMenu = 0;
 
 const restaurantes = [
     {
@@ -47,3 +48,73 @@ const restaurantes = [
         totalRest++;
         r.id = totalRest;
     })
+
+const menus = [
+    {
+        id:"",
+        restaurante:"Calamar a la Romina",
+        nombre:"Patatas Bravas",
+        categoria:"entrante",
+        precio:3.5,
+        descrip:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, perspiciatis ipsum adipisci placeat iste in error odit, omnis harum, natus facere voluptatibus eos temporibus cumque. Esse animi eveniet sint aperiam!",
+        img:"https://cdn.pixabay.com/photo/2023/10/05/11/47/sweet-potatoes-8295778_640.jpg",
+        cantidad: 0
+
+    },  {
+        id:"",
+        restaurante:"¿No Tomás nada?",
+        nombre:"Asado argentino",
+        categoria:"principal",
+        precio:22,
+        descrip:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, perspiciatis ipsum adipisci placeat iste in error odit, omnis harum, natus facere voluptatibus eos temporibus cumque. Esse animi eveniet sint aperiam!",
+        img:"https://media.istockphoto.com/id/1812941467/es/foto/costillas-de-ternera-y-costillas-de-cerdo-a-la-parrilla-costillas-de-ternera-y-costillas-de.jpg?s=612x612&w=0&k=20&c=9JwEpw9Qxscs2FFKe0wrnNalu3Pnl40fg2UdA7woBF4=",
+        cantidad: 0
+
+    },  {
+        id:"",
+        restaurante:"A Kike hay para comer",
+        nombre:"Hamburguesa de pollo",
+        categoria:"principal",
+        precio:10,
+        descrip:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, perspiciatis ipsum adipisci placeat iste in error odit, omnis harum, natus facere voluptatibus eos temporibus cumque. Esse animi eveniet sint aperiam!",
+        img:"https://cdn.pixabay.com/photo/2023/05/29/17/01/hamburger-8026582_640.jpg",
+        cantidad: 0
+
+    },  {
+        id:"",
+        restaurante:"Alta coSina",
+        nombre:"Falso flan de naranja en suelo de cacao",
+        categoria:"postre",
+        precio:18,
+        descrip:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, perspiciatis ipsum adipisci placeat iste in error odit, omnis harum, natus facere voluptatibus eos temporibus cumque. Esse animi eveniet sint aperiam!",
+        img:"https://cdn.pixabay.com/photo/2014/07/21/23/00/orange-cake-398966_640.jpg",
+        cantidad: 0
+
+    },{
+        id:"",
+        restaurante:"Alta coSina",
+        nombre:"Falso flan de naranja en suelo de cacao 2",
+        categoria:"postre",
+        precio:30,
+        descrip:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, perspiciatis ipsum adipisci placeat iste in error odit, omnis harum, natus facere voluptatibus eos temporibus cumque. Esse animi eveniet sint aperiam!",
+        img:"https://cdn.pixabay.com/photo/2014/07/21/23/00/orange-cake-398966_640.jpg",
+        cantidad: 0
+
+    },  {
+        id:"",
+        restaurante:"Pasta a la Belenyesa",
+        nombre:"Lasaña de la nona",
+        categoria:"principal",
+        precio:13.50,
+        descrip:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, perspiciatis ipsum adipisci placeat iste in error odit, omnis harum, natus facere voluptatibus eos temporibus cumque. Esse animi eveniet sint aperiam!",
+        img:"https://cdn.pixabay.com/photo/2021/04/06/14/43/pasta-6156586_640.jpg",
+        cantidad: 0
+
+    },
+]
+
+menus.forEach((m)=>{
+    totalMenu++;
+    m.id = totalMenu;
+})
+
