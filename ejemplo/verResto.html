@@ -8,96 +8,93 @@
 <body>
     <h1>Ver resto</h1>
 
-    <h1>Soy pagina del resto</h1>
+    <h1 id="titulo">Nombre del Restaruante</h1>
+    <img id="imagen" src="/noimg.png">
     <p id="parrafo"></p>
+
+
+    <!-- traigo información de restaurantes-->
+    <script src="./datos.js"></script>
 
     <script>
 
-const restos =
-            [
-                {
-                    id: 25,
-                    icono_premium:true,
-                    nombre: "El Boliche de Alberto",
-                    imagen: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmVzdGF1cmFudGV8ZW58MHx8MHx8fDA%3D",
-                    descripcion:"Las mejores Carnes de la ciudad",
+        const restos = datos.restos;
 
-                    contacto: {
-                        tel: "666-1234",
-                        direccion: "San Martin 1001",
-                        ciudad: "Bariloche",
-                        cp: 234123,
-                    },
-                    categorias: ["carnes", "comida regional", "almuerzos"]
-                },
-                {
-                    id: 33,
-                    icono_premium:false,
-                    nombre: "Heladeria Juaja",
-                    imagen: "https://images.unsplash.com/photo-1578474846511-04ba529f0b88?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHJlc3RhdXJhbnRlfGVufDB8fDB8fHww",
-                    descripcion:"Helados artesanales",
-                    contacto: {
-                        tel: "555-45345",
-                        direccion: "Mitre 891",
-                        ciudad: "Bariloche",
-                        cp: 234123,
-                    },
-                    categorias: ["helados", "postres"]
-                },
-                {
-                    id: 983,
-                    icono_premium:true,
-                    nombre: "Manush Bar",
-                    imagen: "https://images.unsplash.com/photo-1592861956120-e524fc739696?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHJlc3RhdXJhbnRlfGVufDB8fDB8fHww",
-                    descripcion:"La mejor Cerveza artesanal",
-                    contacto: {
-                        tel: "444-4321",
-                        direccion: "Pioneros km 2.4",
-                        ciudad: "Bariloche",
-                        cp: 234123,
-                    },
-                    categorias: ["cerveza", "tapas", "almuerzos"]
-                },
-            ]
+        //const misParametros = window.location.search;
+        //console.log(misParametros) // ?id=25
+        //const urlParams2 = new URLSearchParams(misParametros);
 
 
-        const misParametros = window.location.search;
-        //console.log(misParametros);
+        // Paso 1: Leer la URL
+        const urlParams = new URLSearchParams(window.location.search);        
 
+        // Paso 2: obtener y crear variables de mi URL
+        //const primerAlumno=urlParams.get("alumno");
+        //const segundoAlumno=urlParams.get("alumno2");
 
-
-        const urlParams = new URLSearchParams(misParametros);
-
-        const primerAlumno=urlParams.get("alumno");
-        const segundoAlumno=urlParams.get("alumno2");
+        const miId=urlParams.get("id");
+        
+        
+        //const miNombre=urlParams.get("nombre");
 
         //const idResto= urlParams.has('id');
         /* const nombre = urlParams.get('nombre');
         const busqueda = urlParams.get('busqueda'); */
         
 
+
         console.log("paramS:",urlParams);
+        
+
+        // Paso 3: Filtrar mis datos para obtener el restaurante deseado,
 
 
 
 
 
 
-
-        const idResto = urlParams.get('id');
-
+        //const idResto = urlParams.get('id');
+/*
         let listaRestos = [
-        { name: "McDonalds",id: 26, tf_premium: true },
-        { name: "Subway",id: 25, tf_premium: false },
-        { name: "Burguer King",id: 44, tf_premium: true },
-       ];
+            { name: "McDonalds",id: 26, tf_premium: true },
+            { name: "Subway",id: 25, tf_premium: false },
+            { name: "Burguer King",id: 44, tf_premium: true },
+        ];
+        */
 
-       let restElegido=restos.find( (resto) => 
-        resto.id == Number(idResto) );
+        // devuelve el primer elemento que encuentra
+       let restauranteElegido=restos.find( 
+            (resto) => resto.id == Number(miId) 
+        );
 
         const parrafo=document.getElementById("parrafo");
-        parrafo.innerHTML=restElegido.nombre;
-       console.log(restElegido);
+        const imagen=document.getElementById("imagen");
+        const titulo=document.getElementById("titulo");
+        /*
+
+        // devuelve una lista
+        let A_restaurantesPremium=listaRestos.filter( 
+            (resto) => (resto.tf_premium == true)
+        );
+
+        // devuelve una lista
+         let A_restaurantesVeganos=listaRestos.filter(
+            (rest) => (rest.categorias.includes("vegano"))
+        ) 
+        
+        restaurantesPremium.forEach( resto => {
+            parrafo.innerHTML+=`<div class="premium">${resto.nombre}</div>`;
+        })
+        */
+
+        // devuelve :
+        // { name: "Burguer King",id: 44, tf_premium: true },
+
+
+    imagen.src=restauranteElegido.imagen;
+    titulo.innerHTML=restauranteElegido.nombre;
+    parrafo.innerHTML=restauranteElegido.descripcion;
+    console.log(restauranteElegido);
 
 
 
