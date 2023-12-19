@@ -153,7 +153,7 @@ let restauranteElegido= restaurantes.find(
 
 
 const menuRestaurante = document.getElementById("Plato");
-const Formplatos =.document.getElementById("Formplatos")
+const Formplatos =document.getElementById("Formplatos")
 console.log("menuRestaurante", menuRestaurante)
 const menu =[{
        
@@ -191,11 +191,28 @@ menu.forEach((platillo) => {
             <h3class="h3descripcion"> ${platillo.descripcion}</h3> <br><br>
             <h4class="h4precio">${platillo.precio}</h4>
             </div>
-            <input type="number" value="0" name="cantidad_${platillo.id}">
             </div>
         </div>`});
 
 Formplatos.innerHTML+="<input type='submit' value>"
+
+function incrementar(indice){
+            menu[indice].cant+=1;
+            if(menu[indice].cant > 10){
+                menu[indice].cant=10;
+            }
+            imprimirMenu();
+        }
+
+        function decrementar(indice){
+            menu[indice].cant-=1;
+            if(menu[indice].cant < 1){
+                menu[indice].cant=0;
+            }
+            imprimirMenu();
+        }
+    
+     
 </script>
 
 
