@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ver Menu</title>
+    <style>
+        .platoBox {
+            border: 1px dashed gray;
+        }
+    </style>
+</head>
+<body>
+    <h1>Menu del resturante:</h1>
+
+    <div>
+        <h3>Formato Formulario</h3>
+        <form action="./backend-recibirMenu.html" method="" id="formMenu">
+            <!--- imprimir todo mi menú en un formulario-->
+        </form>
+    </div>
+
+    <hr>
+
+    <div>
+        <h3>Formato Caja</h3>
+        <div id="divMenu">
+            <!-- imprimir todo mi menu en caja-->
+        </div>
+    </div>
+
+    <script>
+        const menuResto=[{
+                id: 5,
+                titulo: "Cafe",
+                precio: 1,
+                cant: 0
+            },{
+                id: 4,
+                titulo: "Cafe con Leche",
+                precio: 1.5,
+                cant: 0
+            },{
+                id: 23,
+                titulo: "Cafe - Carajillo",
+                precio: 3,
+                cant: 0
+        }];
+
+        var textoJson=JSON.stringify(menuResto);
+
+
+
+        const divMenu=document.getElementById("divMenu");
+        const formMenu=document.getElementById("formMenu");
+
+        function imprimirMenu(){
+            formMenu.innerHTML="";
+            divMenu.innerHTML="";
+
+            menuResto.forEach( (plato, i ) => {
+                console.log(plato);
+
+                // imprimimos el formulario
+                formMenu.innerHTML+=`
+                    <input type="text" name="plato_${plato.id}" value="${plato.cant}" />${plato.titulo} (€ ${plato.precio})<br>
+                `;
+
+                // imprimimos las CAja
+                divMenu.innerHTML+=`<div class="platoBox">
+                                        <h3>${plato.titulo}</h3>
+                                        precio: ${plato.precio}<br>
+                                        cant: ${plato.cant}<br>
+
+                                        <button onClick='incrementar(${i})'>+</button>
+                                        <button onClick='decrementar(${i})'>-</button>
+                                    </div>`;
+
+            });
+
+
+            formMenu.innerHTML+="<input type='submit' value='Realizar Pedido'>";
+        }
+
+        function incrementar(indice){
+            menuResto[indice].cant+=1;
+            if(menuResto[indice].cant > 10){
+                menuResto[indice].cant=10;
+            }
+            imprimirMenu();
+        }
+
+        function decrementar(indice){
+            menuResto[indice].cant-=1;
+            if(menuResto[indice].cant < 1){
+                menuResto[indice].cant=0;
+            }
+            imprimirMenu();
+        }
+    
+        imprimirMenu();
+    </script>
+</body>
+</html>
