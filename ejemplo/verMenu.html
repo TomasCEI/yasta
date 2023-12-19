@@ -47,6 +47,10 @@
                 cant: 0
         }];
 
+        var textoJson=JSON.stringify(menuResto);
+
+
+
         const divMenu=document.getElementById("divMenu");
         const formMenu=document.getElementById("formMenu");
 
@@ -64,24 +68,37 @@
 
                 // imprimimos las CAja
                 divMenu.innerHTML+=`<div class="platoBox">
-                        <h3>${plato.titulo}</h3>
-                        precio: ${plato.precio}<br>
-                        cant: ${plato.cant}<br>
+                                        <h3>${plato.titulo}</h3>
+                                        precio: ${plato.precio}<br>
+                                        cant: ${plato.cant}<br>
 
-                        <button onClick='
-                            menuResto[${i}].cant+=1;
-                            imprimirMenu();
-                        '>+</button>
-                        <button onClick='
-                            menuResto[${i}].cant-=1;
-                            imprimirMenu();
-                        '>-</button>
-                    </div>`;
+                                        <button onClick='incrementar(${i})'>+</button>
+                                        <button onClick='decrementar(${i})'>-</button>
+                                    </div>`;
 
             });
+
+
             formMenu.innerHTML+="<input type='submit' value='Realizar Pedido'>";
-    }
-    imprimirMenu();
+        }
+
+        function incrementar(indice){
+            menuResto[indice].cant+=1;
+            if(menuResto[indice].cant > 10){
+                menuResto[indice].cant=10;
+            }
+            imprimirMenu();
+        }
+
+        function decrementar(indice){
+            menuResto[indice].cant-=1;
+            if(menuResto[indice].cant < 1){
+                menuResto[indice].cant=0;
+            }
+            imprimirMenu();
+        }
+    
+        imprimirMenu();
     </script>
 </body>
 </html>
