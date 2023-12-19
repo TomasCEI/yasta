@@ -95,9 +95,19 @@ const menus = [
         restaurante:"Alta coSina",
         nombre:"Falso flan de naranja en suelo de cacao 2",
         categoria:"postre",
-        precio:30,
+        precio:20.5,
         descrip:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, perspiciatis ipsum adipisci placeat iste in error odit, omnis harum, natus facere voluptatibus eos temporibus cumque. Esse animi eveniet sint aperiam!",
         img:"https://cdn.pixabay.com/photo/2014/07/21/23/00/orange-cake-398966_640.jpg",
+        cantidad: 0
+
+    },{
+        id:"",
+        restaurante:"Alta coSina",
+        nombre:"Bandeja de bosque mediterráneo",
+        categoria:"principal",
+        precio:35,
+        descrip:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, perspiciatis ipsum adipisci placeat iste in error odit, omnis harum, natus facere voluptatibus eos temporibus cumque. Esse animi eveniet sint aperiam!",
+        img:"https://cdn.pixabay.com/photo/2017/01/26/02/06/platter-2009590_640.jpg",
         cantidad: 0
 
     },  {

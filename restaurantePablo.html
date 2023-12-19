@@ -36,6 +36,7 @@
             display: flex;
             flex-direction: column;
             margin-left: 20px;
+            position: relative;
         }
 
         .no_margin {
@@ -112,19 +113,19 @@
             display: none;
         }
 
-        .cantidad{
+        .cantidad {
             width: 20px;
             padding: 20px;
             text-align: center;
             border: 1px solid black;
             border-radius: 50px;
             position: absolute;
-            left: 27px;
-            top: 28px;
+            left: -335px;
+            top: -15px;
             background-color: white;
         }
 
-        .punto{
+        .punto {
             width: 15px;
             height: 15px;
             background-color: red;
@@ -173,7 +174,10 @@
     const punto = document.getElementById("punto");
     const modal = document.getElementById("modal");
 
-    const ElCarrito = [];
+    let ElCarrito = [];
+    let LosPrecios = [];
+    let total
+
 
     header.style = `height: 500px; background-image: url(${restoMostrar.imagen}); background-size:cover; filter: blur(4px);`;
     tit.innerHTML = `<h1 style="position: relative;    top: -111px;
@@ -200,10 +204,9 @@
                                 <div class="data">
                                     <h2 class="no_margin">${m.nombre}</h2>
                                     <span class="desc no_margin">${m.descrip}</span>
-                                    <span class="anyadir" onclick="addCarrito(${m.id})">Añadir a carrito</span>
+                                    <span class="anyadir" onclick="addCarrito(${m.id},${m.precio})">Añadir a carrito</span>
                                 </div>
-                                <span class="precio">${m.precio}€</span>
-                                
+                                <span class="precio">${m.precio}€</span>                
 
                             </div>`;
     });
@@ -212,10 +215,9 @@
     function mostrarCarrito() {
 
         modal.classList.toggle("isnot_shown");
-
     }
 
-    function addCarrito(id) {
+    function addCarrito(id,precio) {
 
         modal.innerHTML = " ";
 
@@ -229,6 +231,7 @@
 
         menus.forEach((m) => {
 
+
             if (m.cantidad >= 1) {
                 let tarjeta = `<div class="card">
                         <img src="${m.img}" alt="plato" style="width: 340px; height: 200px">
@@ -237,11 +240,17 @@
                             <br>
                             <span class="precio">${m.precio * m.cantidad}€</span>
                             <span class="cantidad">${m.cantidad}</span><br>
-                            <i onclick="addCarrito(${m.id})" class="fa-solid fa-plus"></i>
+                            <i onclick="addCarrito(${m.id},${m.precio})" class="fa-solid fa-plus"></i>
+                            <i onclick="deleteItem(${m.id},${m.precio})" class="fa-solid fa-minus"></i>
+                            <div> 
+                                <span> Total: ${total}</span>
+                            </div>
                         </div>
                     </div>`;
 
                 modal.innerHTML += tarjeta
+
+            
 
 
             }
@@ -249,19 +258,99 @@
 
         });
 
-
-
-
         alert("producto añadido");
 
-
-
         ElCarrito.push(id);
+        LosPrecios.push(precio);
         punto.classList.remove("isnot_shown");
+        console.log("elementos" + ElCarrito);
+        console.log("precios "+ LosPrecios);
 
-        console.log(ElCarrito)
+        actualizarTotal();
+        
+
 
     }
+
+    function deleteItem(id,precio) {
+        modal.innerHTML = " ";
+        let cont = 0
+        
+
+        menus.forEach((m) => {
+            if (m.id == id) {
+                m.cantidad--;
+            }
+
+        });
+
+        menus.forEach((m) => {
+
+            if (m.cantidad >= 1) {
+                let tarjeta = `<div class="card">
+                <img src="${m.img}" alt="plato" style="width: 340px; height: 200px">
+                <div class="data">
+                    <h2 class="no_margin">${m.nombre}</h2>
+                    <br>
+                    <span class="precio">${m.precio * m.cantidad}€</span>
+                    <span class="cantidad">${m.cantidad}</span><br>
+                    <i onclick="addCarrito(${m.id},${m.precio})" class="fa-solid fa-plus"></i>
+                    <i onclick="deleteItem(${m.id},${m.precio})" class="fa-solid fa-minus"></i>
+                    <div> 
+                        <span> Total: ${total}</span>
+                    </div>
+                </div>
+            </div>`;
+
+                modal.innerHTML += tarjeta
+
+
+            }
+
+        });
+
+        alert("producto borrado");
+
+        ElCarrito.forEach((c, i) => {
+         
+            if (c == id && cont < 1) {
+                ElCarrito.splice(i, 1);
+                LosPrecios.splice(i, 1);
+                cont++;
+            }
+        });
+
+        console.log(ElCarrito);
+
+        if (ElCarrito.length == 0)
+            punto.classList.add("isnot_shown");
+
+
+ 
+        
+
+
+    }
+
+    function actualizarTotal() {
+
+        total = 0;
+
+        if (LosPrecios.length > 0) {
+
+            LosPrecios.forEach((item) => {
+
+                total += item;
+
+            })
+        } else {
+            total = 0;
+        }
+
+        console.log(total)
+
+    }
+
 
 
 
