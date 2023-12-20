@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Just angry cats</title>
+</head>
+
+<style>
+
+    body {
+        background: url("https://www.whoa.in/download/annoyed-face-emoji-gif-for-facebook-whatsapp");
+        background-repeat: repeat;
+        background-size: contain;
+    }
+
+    .imgContainer {
+        width: 90vw;
+        height: 90vh;
+        margin: 50px auto;
+    }
+
+    .imgContainer img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .txtDiv {
+        position: fixed;
+        width: 350px;
+        text-align: center;
+        height: fit-content;
+        background-color: red;
+        color: white;
+        top: 10%;
+        left: 40%;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+</style>
+
+<body>
+
+    <div id="txtIntermitente" class="txtDiv"><h1>¡Gatos enfadados!</h1></div>
+    <div id="catContainer" class="imgContainer">
+    </div>
+    
+
+    <script>
+
+        const catImgs=
+        ['https://steamuserimages-a.akamaihd.net/ugc/974352614523876225/E51FD04F339BDFAA0AC2E5BB47FF6DFCD1EB8200/?imw=512&imh=515&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true',
+        'https://ew.com/thmb/x9eGvh2TNSbt0NyyL4EP9B0HSPU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/grumpy-cat-2-2000-9fa48ba1e7d843c49b5dda77593f615d.jpg',
+        'https://images.squarespace-cdn.com/content/v1/5fd56e513c1f6275809ed7d1/1633502681708-2N00GGCCYRTPVONA8KBF/Cranky+cat.PNG',
+        'https://i.pinimg.com/736x/d0/12/de/d012ded45404dbe7efd29eae8f75afa8.jpg',
+        'https://preview.redd.it/i-keep-seeing-this-angry-cat-meme-does-anyone-know-what-v0-n9p8aheg9jw91.jpg?width=1080&format=pjpg&auto=webp&s=1234ce6118236f234e84f50164dd6f176c6d9f7e',
+        'https://i.pinimg.com/1200x/b2/eb/98/b2eb980ee179a7f85718ab62bbf36f91.jpg'];
+
+
+        
+
+        const catContainer = document.getElementById('catContainer');
+
+        const catInterval = setInterval(cambiarImg, 600);
+
+        var i = 0;
+        
+        function cambiarImg() {
+            console.log(catImgs[i++]);
+                if(i==5){i=0;};
+            catContainer.innerHTML = `<img src="${catImgs[i]}">`;
+            };
+
+    const txtIntermitente = document.getElementById('txtIntermitente');
+
+    const txtInterval = setInterval(intermitenteTxt, 200);
+
+function intermitenteTxt() {
+    txtIntermitente.style.display = (txtIntermitente.style.display == 'none') ? 'block' : 'none';
+}
+
+    </script>
+</body>
+</html>

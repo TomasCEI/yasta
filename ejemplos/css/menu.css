@@ -1,0 +1,13 @@
+body {
+    margin: 0;
+}
+
+.menuHeader {
+    width: 100vw;
+    height: 20%;
+    background-color: pink;
+    text-align: center;
+    padding: 25px;
+    color: white;
+    font-family: 'Abril Fatface';
+}
