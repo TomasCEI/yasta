@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gatitos</title>
+    <style>
+body{background-image: url(https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2016/10/giphy.gif?fit=400%2C234&quality=50&strip=all&ssl=1);
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 30px   ;}
+
+.divmensaje{display: flex; font-size: 30px; 
+ height: 300px; width: 300px; background-color: rgb(255, 255, 255);}
+ 
+.hidden{ 
+    display:none;
+}
+
+
+    </style>
+</head>
+<body>
+
+<div id="gatos" style="align-items: center; display: flex; justify-content: center; margin-top: 150px;">  
+ </div>   
+
+
+ <div id="holaMsg" class="divmensaje">
+    Hola </div>
+
+
+
+
+    <script>
+
+const mensaje=document.getElementById("holaMsg")
+
+
+const fotosGatitos = document.getElementById("gatos")
+const gatosImg =["https://static.nationalgeographic.es/files/styles/image_3200/public/75552.ngsversion.1422285553360.jpg?w=1600&h=1067",
+
+ "https://fielpet.com.ar/blog/content/images/2021/02/Hisotoria-de-los-gatos.jpg",
+
+ "https://www.abc.es/xlsemanal/wp-content/uploads/sites/5/2023/10/como-entender-gatos-animales.jpg",
+
+ "https://www.paragatitos.com/wp-content/uploads/gato-alto.jpg",
+ "https://especiespro.es/wp-content/uploads/2018/07/gato-paracaidista.jpg"
+]
+
+
+
+
+let i= 1
+
+
+function cambiarImagen(){
+    //console.log(i++);
+  
+ // console.log(gatosImg[i])
+ fotosGatitos.innerHTML =
+ `<div><img style="height: 700px; width: 700px; object-fit:cover;" src=${gatosImg[i]}></div>`;
+ i++;
+  if (i==4) {
+    i=0;
+  }
+}
+setInterval(cambiarImagen, 800);
+
+//------------------------------------------------------
+
+function hola(){
+mensaje.classList.toggle("hidden");
+}
+setInterval(hola, 1000);
+
+    </script>
+    
+</body>
+</html>
