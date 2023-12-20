@@ -8,11 +8,12 @@ const getRestaurantCategoriesSpans = (categories) => {
     return categories.map(categorie => {
         return `<span class="categoria"># ${categorie}</span>`
     }).join("")
-} 
+}
 
 const getRestaurantImg = (img, alt = "decoration") => {
     return `<img src="${img}" alt="${alt}"/>`
 }
+
 
 const getRestaurantInformationDiv = (restaurant) => {
     return (
@@ -24,6 +25,8 @@ const getRestaurantInformationDiv = (restaurant) => {
         </div>`
     )
 }
+
+
 
 //Get restaurant menu information functions
 const menuCards = document.getElementById("restaurantMenuContainer");
@@ -41,38 +44,12 @@ const getEntrantesInformationDiv = (entrante) => {
     )
 }
 
-const getPlatosPrincipalesInformationDiv = (pprincipal) => {
+const getInformationDiv = (plato) => {
     return (
-        `<div class="menuPlatoPrincipalCard">
-        <img src="${pprincipal.articleImg}" alt="${pprincipal.item}"/>
-            <h3>${pprincipal.item}</h3>
-            <span>$ ${pprincipal.price}</span>
-            <form action="input">
-                <Button>Agregar al carrito</Button>
-            </form>
-        </div>`
-    )
-}
-
-const getPostresInformationDiv = (postre) => {
-    return (
-        `<div class="menuPostresCard">
-        <img src="${postre.articleImg}" alt="${postre.item}"/>
-            <h3>${postre.item}</h3>
-            <span>$ ${postre.price}</span>
-            <form action="input">
-                <Button>Agregar al carrito</Button>
-            </form>
-        </div>`
-    )
-}
-
-const getBebidasInformationDiv = (bebida) => {
-    return (
-        `<div class="menuBebidasCard">
-        <img src="${bebida.articleImg}" alt="${bebida.item}"/>
-            <h3>${bebida.item}</h3>
-            <span>$ ${bebida.price}</span>
+        `<div class="menuEntrantesCard">
+        <img src="${plato.articleImg}" alt="${plato.item}"/>
+            <h3>${plato.item}</h3>
+            <span>$ ${plato.price}</span>
             <form action="input">
                 <Button>Agregar al carrito</Button>
             </form>
@@ -89,7 +66,7 @@ const getBebidasInformationDiv = (bebida) => {
 
 const cards = restaurantes.map(restaurante => {
 
-    const menu= restaurante.menu;
+    const menu = restaurante.menu;
 
     return (
         `
@@ -98,38 +75,29 @@ const cards = restaurantes.map(restaurante => {
                 ${getRestaurantInformationDiv(restaurante)}
 
                 <h2>ENTRANTES</h2>
-                ${menu.entrantes.map(getEntrantesInformationDiv).join("")}
-
+                ${menu.entrantes.map((entrantes) =>
+            getInformationDiv(entrantes)
+        ).join("")}
                 <h2>PLATOS PRINCIPALES</h2>
-                ${menu.principales.map(getPlatosPrincipalesInformationDiv).join("")}
-                
-                <h2>POSTRES</h2>           
-                ${menu.postres.map(getPostresInformationDiv).join("")}
-                
-                <h2>BEBIDAS</h2>
-                ${menu.bebidas.map(getBebidasInformationDiv).join("")}
-            </div>
-        `
+                    ${menu.principales.map((principales) =>
+            getInformationDiv(principales)
+        ).join("")}
+                        <h2>POSTRES</h2>
+                ${menu.postres.map((postres) =>
+            getInformationDiv(postres)
+        ).join("")}
+
+                    <h2>BEBIDAS</h2>
+                ${menu.bebidas.map((bebidas) =>
+            getInformationDiv(bebidas)
+        ).join("")}
+
+                    </div>
+                    `
     )
 }).join("")
 console.log(cards)
-restaurantMenuContainer.innerHTML = (
-    `
-    <div class="menuCard">
-            ${getRestaurantImg(currentRestaurant.img)}
-            ${getRestaurantInformationDiv(currentRestaurant)}
-            <h2>ENTRANTES</h2>
-                ${getEntrantesInformationDiv(currentRestaurant.menu.entrantes)}
-
-                <h2>PLATOS PRINCIPALES</h2>
-                ${getPlatosPrincipalesInformationDiv(currentRestaurant.menu.principales)}
-                
-                <h2>POSTRES</h2>           
-                ${getPostresInformationDiv(currentRestaurant.menu.postres)}
-                
-                <h2>BEBIDAS</h2>
-                ${getPlatosPrincipalesInformationDiv(currentRestaurant.menu.bebidas)}
-    </div>
-    `
-)
 restaurantMenuContainer.innerHTML = cards
+
+
+
